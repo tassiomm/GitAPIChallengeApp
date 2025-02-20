@@ -11,9 +11,9 @@ import NetworkingInterface
 import Networking
 import RepositoriesFeature
 import RepositoriesAPI
-import RepositoriesProvider
+import RepositoriesRepository
 import RepositoriesAPIInterface
-import RepositoriesProviderInterface
+import RepositoriesRepositoryInterface
 
 extension GitAPIChallengeApp {
     func registerAllDependencies() {
@@ -22,6 +22,6 @@ extension GitAPIChallengeApp {
         container.register(factory: { HTTPClient() }, forMetaType: NetworkClient.self)
         container.register(factory: { JSONDecoder() }, forMetaType: DataDecoder.self)
         container.register(factory: { RepositoriesDataSource() }, forMetaType: RepositoriesDataSourceProtocol.self)
-        container.register(factory: { RepositoriesProvider() }, forMetaType: RepositoriesProviderProtocol.self)
+        container.register(factory: { RepositoriesRepository() }, forMetaType: RepositoriesRepositoryProtocol.self)
     }
 }

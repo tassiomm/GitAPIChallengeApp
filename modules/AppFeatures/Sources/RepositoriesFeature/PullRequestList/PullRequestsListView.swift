@@ -9,7 +9,7 @@
 import ComposableArchitecture
 import SwiftUI
 import AppUI
-import RepositoriesProviderInterface
+import RepositoriesRepositoryInterface
 
 struct PullRequestsListView: View {
     @Perception.Bindable var store: StoreOf<PullRequestsListFeature>

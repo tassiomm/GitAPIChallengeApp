@@ -7,13 +7,13 @@
 
 import Foundation
 import DependencyInjection
-import RepositoriesProviderInterface
+import RepositoriesRepositoryInterface
 import RepositoriesAPIInterface
 
-public final actor RepositoriesProvider: RepositoriesProviderProtocol {
-    private let environment: RepositoriesProviderEnvironment
+public final actor RepositoriesRepository: RepositoriesRepositoryProtocol {
+    private let environment: RepositoriesRepositoryEnvironment
 
-    public init(environment: RepositoriesProviderEnvironment = .init()) {
+    public init(environment: RepositoriesRepositoryEnvironment = .init()) {
         self.environment = environment
     }
     
@@ -28,7 +28,7 @@ public final actor RepositoriesProvider: RepositoriesProviderProtocol {
     }
 }
 
-public struct RepositoriesProviderEnvironment {
+public struct RepositoriesRepositoryEnvironment {
     @AppDependency var dataSource: RepositoriesDataSourceProtocol
     
     public init(dataSource: AppDependency<RepositoriesDataSourceProtocol> = .init()) {

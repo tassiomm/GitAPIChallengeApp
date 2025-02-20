@@ -10,13 +10,13 @@ import NetworkingInterface
 import ComposableArchitecture
 import SwiftUI
 import AppUI
-import RepositoriesProviderInterface
+import RepositoriesRepositoryInterface
 
 struct PullRequestsFeatureEnvironment {
-    @AppDependency var repositoriesProvider: RepositoriesProviderProtocol
+    @AppDependency var repositoriesRepository: RepositoriesRepositoryProtocol
     
-    init(repositoriesProvider: AppDependency<RepositoriesProviderProtocol> = .init()) {
-        self._repositoriesProvider = repositoriesProvider
+    init(repositoriesRepository: AppDependency<RepositoriesRepositoryProtocol> = .init()) {
+        self._repositoriesRepository = repositoriesRepository
     }
 }
 
@@ -62,7 +62,7 @@ struct PullRequestsListFeature {
                     await send(.fetchPullRequestsResponse(
                         Result {
                             return try await environment
-                                .repositoriesProvider.fetchPullRequests(from: url)
+                                .repositoriesRepository.fetchPullRequests(from: url)
                         }
                     ))
                 }.cancellable(id: "fetchPullRequests")

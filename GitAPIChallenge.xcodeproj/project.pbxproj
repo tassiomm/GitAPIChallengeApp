@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD71D5B12D67F36300771DF1 /* AppUI in Frameworks */ = {isa = PBXBuildFile; productRef = AD71D5B02D67F36300771DF1 /* AppUI */; };
 		ADAB45272D66C0AB009AFEA1 /* GitAPIChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB45262D66C0AB009AFEA1 /* GitAPIChallengeApp.swift */; };
 		ADAB452B2D66C0AC009AFEA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADAB452A2D66C0AC009AFEA1 /* Assets.xcassets */; };
 		ADAB452F2D66C0AC009AFEA1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADAB452E2D66C0AC009AFEA1 /* Preview Assets.xcassets */; };
 		ADAB45452D66C26B009AFEA1 /* RegisterDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB45442D66C26B009AFEA1 /* RegisterDependencies.swift */; };
-		ADAB454F2D6782F6009AFEA1 /* AppCore in Frameworks */ = {isa = PBXBuildFile; productRef = ADAB454E2D6782F6009AFEA1 /* AppCore */; };
-		ADAB45512D6782FB009AFEA1 /* AppCoreInterface in Frameworks */ = {isa = PBXBuildFile; productRef = ADAB45502D6782FB009AFEA1 /* AppCoreInterface */; };
-		ADAB45532D678301009AFEA1 /* AppUI in Frameworks */ = {isa = PBXBuildFile; productRef = ADAB45522D678301009AFEA1 /* AppUI */; };
-		ADAB45572D678E4B009AFEA1 /* AppFeatures in Frameworks */ = {isa = PBXBuildFile; productRef = ADAB45562D678E4B009AFEA1 /* AppFeatures */; };
+		ADAB455D2D67F21D009AFEA1 /* AppCore in Frameworks */ = {isa = PBXBuildFile; productRef = ADAB455C2D67F21D009AFEA1 /* AppCore */; };
+		ADAB455F2D67F21D009AFEA1 /* AppCoreInterface in Frameworks */ = {isa = PBXBuildFile; productRef = ADAB455E2D67F21D009AFEA1 /* AppCoreInterface */; };
+		ADAB45612D67F21D009AFEA1 /* AppFeatures in Frameworks */ = {isa = PBXBuildFile; productRef = ADAB45602D67F21D009AFEA1 /* AppFeatures */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,10 +32,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ADAB45532D678301009AFEA1 /* AppUI in Frameworks */,
-				ADAB454F2D6782F6009AFEA1 /* AppCore in Frameworks */,
-				ADAB45512D6782FB009AFEA1 /* AppCoreInterface in Frameworks */,
-				ADAB45572D678E4B009AFEA1 /* AppFeatures in Frameworks */,
+				AD71D5B12D67F36300771DF1 /* AppUI in Frameworks */,
+				ADAB455D2D67F21D009AFEA1 /* AppCore in Frameworks */,
+				ADAB455F2D67F21D009AFEA1 /* AppCoreInterface in Frameworks */,
+				ADAB45612D67F21D009AFEA1 /* AppFeatures in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,10 +112,10 @@
 			);
 			name = GitAPIChallenge;
 			packageProductDependencies = (
-				ADAB454E2D6782F6009AFEA1 /* AppCore */,
-				ADAB45502D6782FB009AFEA1 /* AppCoreInterface */,
-				ADAB45522D678301009AFEA1 /* AppUI */,
-				ADAB45562D678E4B009AFEA1 /* AppFeatures */,
+				ADAB455C2D67F21D009AFEA1 /* AppCore */,
+				ADAB455E2D67F21D009AFEA1 /* AppCoreInterface */,
+				ADAB45602D67F21D009AFEA1 /* AppFeatures */,
+				AD71D5B02D67F36300771DF1 /* AppUI */,
 			);
 			productName = GitAPIChallenge;
 			productReference = ADAB45232D66C0AB009AFEA1 /* GitAPIChallenge.app */;
@@ -395,19 +395,19 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		ADAB454E2D6782F6009AFEA1 /* AppCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = AppCore;
-		};
-		ADAB45502D6782FB009AFEA1 /* AppCoreInterface */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = AppCoreInterface;
-		};
-		ADAB45522D678301009AFEA1 /* AppUI */ = {
+		AD71D5B02D67F36300771DF1 /* AppUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = AppUI;
 		};
-		ADAB45562D678E4B009AFEA1 /* AppFeatures */ = {
+		ADAB455C2D67F21D009AFEA1 /* AppCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AppCore;
+		};
+		ADAB455E2D67F21D009AFEA1 /* AppCoreInterface */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AppCoreInterface;
+		};
+		ADAB45602D67F21D009AFEA1 /* AppFeatures */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = AppFeatures;
 		};

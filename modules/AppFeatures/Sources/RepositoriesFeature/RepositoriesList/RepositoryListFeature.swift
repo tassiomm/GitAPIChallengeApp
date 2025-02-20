@@ -10,13 +10,13 @@ import NetworkingInterface
 import ComposableArchitecture
 import SwiftUI
 import AppUI
-import RepositoriesProviderInterface
+import RepositoriesRepositoryInterface
 
 struct SearchRepositoryFeatureEnvironment {
-    @AppDependency var repositoriesProvider: RepositoriesProviderProtocol
+    @AppDependency var repositoriesRepository: RepositoriesRepositoryProtocol
     
-    init(repositoriesProvider: AppDependency<RepositoriesProviderProtocol> = .init()) {
-        self._repositoriesProvider = repositoriesProvider
+    init(repositoriesRepository: AppDependency<RepositoriesRepositoryProtocol> = .init()) {
+        self._repositoriesRepository = repositoriesRepository
     }
 }
 
@@ -74,7 +74,7 @@ struct RepositoryListFeature {
                     await send(.fetchNewPageResponse(
                         Result {
                             let response: RepositoriesResponse = try await environment
-                                .repositoriesProvider.searchRepositories(language: language,
+                                .repositoriesRepository.searchRepositories(language: language,
                                                                          page: page,
                                                                          perPage: batchSize)
                             return response.items

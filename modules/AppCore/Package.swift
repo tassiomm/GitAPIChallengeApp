@@ -29,7 +29,7 @@ enum Products {
                  targets: [
                     "NetworkingInterface",
                     "RepositoriesAPIInterface",
-                    "RepositoriesProviderInterface"
+                    "RepositoriesRepositoryInterface"
                  ])
     ]
     
@@ -42,7 +42,7 @@ enum Products {
                 // DataSources
                 "RepositoriesAPI",
                 // Domain
-                "RepositoriesProvider"
+                "RepositoriesRepository"
             ])
     ]
 }
@@ -105,17 +105,17 @@ enum Targets {
     
     // Data Source Targets
     private static let domainTargets: [Target] = [
-        .target(name: "RepositoriesProviderInterface",
+        .target(name: "RepositoriesRepositoryInterface",
                 dependencies: [
                     .byName(name: "RepositoriesAPIInterface")
                 ],
-                path: "Sources/Domain/RepositoriesProviderInterface"),
-        .target(name: "RepositoriesProvider",
+                path: "Sources/Domain/RepositoriesRepositoryInterface"),
+        .target(name: "RepositoriesRepository",
                 dependencies: [
                     .repositoriesAPIInterface,
-                    .repositoriesProviderInterface
+                    .repositoriesRepositoryInterface
                 ],
-                path: "Sources/Domain/RepositoriesProvider")
+                path: "Sources/Domain/RepositoriesRepository")
     ]
 }
 
@@ -125,13 +125,13 @@ extension PackageDescription.Target.Dependency {
     // interfaces
     static let networkingInterface: Self = .byName(name: "NetworkingInterface")
     static let repositoriesAPIInterface: Self = .byName(name: "RepositoriesAPIInterface")
-    static let repositoriesProviderInterface: Self = .byName(name: "RepositoriesProviderInterface")
+    static let repositoriesRepositoryInterface: Self = .byName(name: "RepositoriesRepositoryInterface")
     
     // internal
     static let networking: Self = .byName(name: "Networking")
     static let dependencyInjection: Self = .byName(name: "DependencyInjection")
     static let repositoriesAPI: Self = .byName(name: "RepositoriesAPI")
-    static let repositoriesProvider: Self = .byName(name: "RepositoriesProvider")
+    static let repositoriesRepository: Self = .byName(name: "RepositoriesRepository")
     
     // testing
     static let cwlPreconditionTesting: Self = .product(name: "CwlPreconditionTesting", package: "CwlPreconditionTesting")
