@@ -24,14 +24,15 @@ struct RepositoryListView: View {
                         RepositoriesList()
                         
                         if store.isLoading && store.errorMessage == nil {
-                            LoadingView()
+                            ProgressView()
+                                .padding()
                         }
                         
                         if store.errorMessage != nil {
                             ErrorView()
+                                .padding(.horizontal, 15)
                         }
                     }
-                    .padding(.horizontal, 15)
                     .onAppear { store.send(.fetchNewPage(reload: true)) }
                     .navigationTitle(Localized("repositories_title", "Swift"))
                     .navigationBarTitleDisplayMode(.inline)
@@ -47,10 +48,12 @@ struct RepositoryListView: View {
         ForEach(Array(zip(store.repositories.indices, store.repositories)), id: \.0) { (index, element) in
             RepositoryRow(element, at: index)
                 .padding(.vertical, 15)
+                .padding(.horizontal, 15)
                 .onTapGesture {
                     store.send(.showPullRequests(repositoryFullName: element.full_name))
                 }
             Divider()
+                .padding(.leading, 15)
         }
     }
     
@@ -68,14 +71,6 @@ struct RepositoryListView: View {
         .onAppear {
             store.send(.fetchPageIfNeeded(index: index))
         }
-    }
-    
-    private func LoadingView() -> some View {
-        VStack(alignment: .center) {
-            ProgressView()
-            Spacer(minLength: 15)
-            Text("text_loading")
-        }.padding()
     }
     
     private func ErrorView() -> some View {

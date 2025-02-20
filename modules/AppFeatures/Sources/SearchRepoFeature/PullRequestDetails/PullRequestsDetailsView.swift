@@ -20,7 +20,7 @@ struct PullRequestDetailsView: View {
             .alert($store.scope(state: \.alert, action: \.alert))
             .overlay {
                 LoadingOverlayView(isLoading: $store.isLoading.sending(\.updateIsLoading),
-                                   message: "text_loading")
+                                   message: Localized("text_loading"))
             }
         }
     }

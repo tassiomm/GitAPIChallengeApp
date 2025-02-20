@@ -55,6 +55,23 @@
         }
       }
     },
+    "text_author" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Author"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autor"
+          }
+        }
+      }
+    },
     "text_loading" : {
       "extractionState" : "manual",
       "localizations" : {
