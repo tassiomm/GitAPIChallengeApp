@@ -12,10 +12,10 @@ import SwiftUI
 import AppUI
 
 struct SearchRepositoryFeatureEnvironment {
-    @AppDependency var searchService: SearchServiceProtocol
+    @AppDependency var repositoriesAPI: RepositoriesAPIProtocol
     
-    init(searchService: AppDependency<SearchServiceProtocol> = .init()) {
-        self._searchService = searchService
+    init(repositoriesAPI: AppDependency<RepositoriesAPIProtocol> = .init()) {
+        self._repositoriesAPI = repositoriesAPI
     }
 }
 
@@ -71,7 +71,7 @@ struct RepositoryListFeature {
                     await send(.fetchNewPageResponse(
                         Result {
                             let response: RepositoriesResponseEntity = try await environment
-                                .searchService.searchRepositories(language: "Swift", page: page, perPage: batchSize)
+                                .repositoriesAPI.searchRepositories(language: "Swift", page: page, perPage: batchSize)
                             return response.items
                         }
                     ))
