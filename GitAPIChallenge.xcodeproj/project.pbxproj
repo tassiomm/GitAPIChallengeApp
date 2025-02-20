@@ -62,7 +62,6 @@
 		ADAB45252D66C0AB009AFEA1 /* GitAPIChallenge */ = {
 			isa = PBXGroup;
 			children = (
-				ADAB45472D66C351009AFEA1 /* Localization */,
 				ADAB45462D66C2D5009AFEA1 /* Info.plist */,
 				ADAB45432D66C24A009AFEA1 /* DI */,
 				ADAB45262D66C0AB009AFEA1 /* GitAPIChallengeApp.swift */,
@@ -94,13 +93,6 @@
 				ADAB45442D66C26B009AFEA1 /* RegisterDependencies.swift */,
 			);
 			path = DI;
-			sourceTree = "<group>";
-		};
-		ADAB45472D66C351009AFEA1 /* Localization */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Localization;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
