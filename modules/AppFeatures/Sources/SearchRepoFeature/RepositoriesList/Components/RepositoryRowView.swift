@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AppUI
 
 public struct RepositoryRowView: View {
     let model: Model

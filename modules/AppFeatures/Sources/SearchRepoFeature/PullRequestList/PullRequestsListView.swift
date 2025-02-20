@@ -21,29 +21,16 @@ struct PullRequestsListView: View {
     
     var body: some View {
         WithPerceptionTracking {
-            List(store.pullRequests) { pullRequest in
-                VStack(alignment: .leading) {
-                    Text(pullRequest.title)
-                        .font(.title3)
-                        .foregroundStyle(Color.blue)
-                        .bold()
-                    Text(pullRequest.body)
-                        .font(.body)
-                        .foregroundStyle(Color.gray)
-                        .lineLimit(4)
-                    
-                    Spacer().frame(height: 10)
-                    
-                    UserAvatarView(model: .init(avatarUrl: pullRequest.user.avatar_url,
-                                                author: pullRequest.user.login))
-                        .frame(height: 65)
-                }
-                .listRowInsets(.init(top: Layout.rowVerticalInsets,
-                                     leading:  Layout.rowHorizontalInsets,
-                                     bottom:  Layout.rowVerticalInsets,
-                                     trailing:  Layout.rowHorizontalInsets))
-                .onTapGesture {
-                    store.send(.showPullRequestDetails(url: pullRequest.html_url))
+            ZStack {
+                Color.gray.opacity(0.15)
+                    .ignoresSafeArea()
+                if store.pullRequests.isEmpty && store.isLoading == false {
+                    Text(String(localized: "no_open_pull_requests_message"))
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal)
+                        .ignoresSafeArea()
+                } else {
+                    PullRequestListing()
                 }
             }
             .navigationTitle(store.repositoryFullName)
@@ -55,11 +42,50 @@ struct PullRequestsListView: View {
                     }
                 }
             }
-            .listStyle(PlainListStyle())
             .onAppear { store.send(.fetchPullRequests) }
             .sheet(item: $store.scope(state: \.pullRequestDetails, action: \.pullRequestDetails)) { store in
                 PullRequestDetailsView(store: store)
             }
+            .alert($store.scope(state: \.alert, action: \.alert))
+        }
+    }
+    
+    private func PullRequestListing() -> some View {
+        ScrollView {
+            LazyVStack {
+                ForEach(store.pullRequests) { pullRequest in
+                    buildPullRequestRow(for: pullRequest)
+                        .padding(.vertical, 15)
+                        .padding(.horizontal, 15)
+                        .background(Color.white)
+                }
+            }
+        }
+    }
+    
+    private func buildPullRequestRow(for pullRequest: PullRequestEntity) -> some View {
+        VStack(alignment: .leading) {
+            Text(pullRequest.title)
+                .font(.title3)
+                .foregroundStyle(Color.blue)
+                .bold()
+            Text(pullRequest.body ?? "")
+                .font(.body)
+                .foregroundStyle(Color.gray)
+                .lineLimit(4)
+            
+            Spacer().frame(height: 10)
+            
+            UserAvatarView(model: .init(avatarUrl: pullRequest.user.avatar_url,
+                                        author: pullRequest.user.login))
+            .frame(height: 65)
+        }
+        .listRowInsets(.init(top: Layout.rowVerticalInsets,
+                             leading:  Layout.rowHorizontalInsets,
+                             bottom:  Layout.rowVerticalInsets,
+                             trailing:  Layout.rowHorizontalInsets))
+        .onTapGesture {
+            store.send(.showPullRequestDetails(url: pullRequest.html_url))
         }
     }
 }

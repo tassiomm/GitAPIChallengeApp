@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AvatarView: View {
+public struct AvatarView: View {
     let imageUrl: String
     let username: String
     
@@ -15,7 +15,12 @@ struct AvatarView: View {
         static let imageSide: CGFloat = 60.0
     }
     
-    var body: some View {
+    public init(imageUrl: String, username: String) {
+        self.imageUrl = imageUrl
+        self.username = username
+    }
+    
+    public var body: some View {
         VStack(spacing: 10) {
             AsyncImageCached(url: URL(string: imageUrl)) { phase in
                 Group {

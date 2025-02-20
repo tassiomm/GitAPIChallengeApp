@@ -18,7 +18,7 @@ struct UserAvatarView: View {
     var body: some View {
         ZStack(alignment: .leading) {
             RoundedRectangle(cornerRadius: 15)
-                .fill(Color.gray.opacity(0.15))
+                .fill(Color.black.opacity(0.05))
 
             HStack(alignment: .center, spacing: 15) {
                 AsyncImageCached(url: URL(string: model.avatarUrl)) { phase in

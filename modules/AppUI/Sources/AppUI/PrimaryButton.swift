@@ -17,16 +17,17 @@ public struct PrimaryButton: View {
     }
     
     public var body: some View {
-        RoundedRectangle(cornerRadius: 6)
-            .fill(Color.blue)
-            .overlay {
-                Text(text)
-                    .foregroundStyle(Color.white)
-                    .padding(2)
-            }
-            .onTapGesture {
-                action()
-            }
-            .frame(height: 40)
+        Button {
+            action()
+        } label: {
+            RoundedRectangle(cornerRadius: 6)
+                .fill(Color.blue)
+                .overlay {
+                    Text(text)
+                        .foregroundStyle(Color.white)
+                        .padding(2)
+                }
+                .frame(height: 40)
+        }
     }
 }

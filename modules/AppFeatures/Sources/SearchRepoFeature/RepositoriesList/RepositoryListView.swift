@@ -39,7 +39,7 @@ struct RepositoryListView: View {
                     .navigationDestination(item: $store.scope(state: \.pullRequests, action: \.pullRequests)) { store in
                         PullRequestsListView(store: store)
                     }
-                }
+                }.background(Color.gray.opacity(0.15))
             }
         }
     }
@@ -49,11 +49,10 @@ struct RepositoryListView: View {
             RepositoryRow(element, at: index)
                 .padding(.vertical, 15)
                 .padding(.horizontal, 15)
+                .background(Color.white)
                 .onTapGesture {
                     store.send(.showPullRequests(repositoryFullName: element.full_name))
                 }
-            Divider()
-                .padding(.leading, 15)
         }
     }
     

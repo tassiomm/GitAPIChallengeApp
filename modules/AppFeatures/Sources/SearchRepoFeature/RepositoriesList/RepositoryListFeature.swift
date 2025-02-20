@@ -25,9 +25,9 @@ struct RepositoryListFeature {
     struct State: Equatable {
         @Presents public var pullRequests: PullRequestsListFeature.State?
         
+        var isLoading = false
         var page = 1
         var repositories: [RepositoryEntity] = []
-        var isLoading = false
         
         var errorMessage: String?
     }
@@ -43,7 +43,7 @@ struct RepositoryListFeature {
     }
 
     private let environment: SearchRepositoryFeatureEnvironment
-    private let batchSize = 100
+    private let batchSize = 80
     
     init(environment: SearchRepositoryFeatureEnvironment = SearchRepositoryFeatureEnvironment()) {
         self.environment = environment

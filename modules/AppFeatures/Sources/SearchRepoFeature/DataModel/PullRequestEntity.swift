@@ -8,7 +8,7 @@
 public struct PullRequestEntity: Decodable, Equatable, Identifiable {
     public let id: Int
     let title: String
-    let body: String
+    let body: String?
     let html_url: String
     let user: UserEntity
 }

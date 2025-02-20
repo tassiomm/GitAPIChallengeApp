@@ -7,11 +7,16 @@
 
 import SwiftUI
 
-struct IconTextView: View {
+public struct IconTextView: View {
     let icon: Image
     let text: String
     
-    var body: some View {
+    public init(icon: Image, text: String) {
+        self.icon = icon
+        self.text = text
+    }
+    
+    public var body: some View {
         HStack {
             icon
             

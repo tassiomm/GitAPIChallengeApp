@@ -35,7 +35,7 @@ enum GithubEndpoint: NetworkEndpoint {
         }
     }
     
-    var queryItems: [URLQueryItem] {
+    var queryItems: [URLQueryItem]? {
         switch self {
         case let .searchRepositories(language, page, perPage):
             return [
@@ -45,7 +45,7 @@ enum GithubEndpoint: NetworkEndpoint {
                 URLQueryItem(name: "per_page", value: String(perPage))
             ]
         default:
-            return []
+            return nil
         }
     }
 }

@@ -24,6 +24,7 @@ struct PullRequestsListFeature {
     @ObservableState
     struct State: Equatable {
         @Presents var pullRequestDetails: PullRequestDetailsFeature.State?
+        @Presents public var alert: AlertState<Action.Alert>?
         
         let repositoryFullName: String
         var pullRequests: [PullRequestEntity] = []
@@ -37,14 +38,19 @@ struct PullRequestsListFeature {
         case fetchPullRequestsResponse(Result<[PullRequestEntity], any Error>)
         case showPullRequestDetails(url: String)
         case pullRequestDetails(PresentationAction<PullRequestDetailsFeature.Action>)
+        case alert(PresentationAction<Alert>)
+        
+        public enum Alert: Equatable, Sendable {
+            case retry
+        }
     }
-    
+
     private let environment: PullRequestsFeatureEnvironment
-    
     init(environment: PullRequestsFeatureEnvironment = PullRequestsFeatureEnvironment()) {
         self.environment = environment
     }
-    
+
+    @Dependency(\.dismiss) var dismiss
     var body: some Reducer<State, Action> {
         Reduce { state, action in
             switch action {
@@ -63,7 +69,13 @@ struct PullRequestsListFeature {
                 state.pullRequests = pullRequests
                 return .none
             case .fetchPullRequestsResponse(.failure(let error)):
-                print(error.localizedDescription)
+                state.isLoading = false
+                state.alert = AlertState {
+                    TextState(error.localizedDescription)
+                } actions: {
+                    ButtonState(action: .retry, label: { TextState(Localized("button_retry")) })
+                    ButtonState(role: .cancel, label: { TextState(Localized("button_cancel"))})
+                }
                 return .none
             case .showPullRequestDetails(let url):
                 guard let url = URL(string: url) else {
@@ -76,8 +88,13 @@ struct PullRequestsListFeature {
                 return .none
             case .pullRequestDetails(.presented):
                 return .none
+            case .alert(.presented(.retry)):
+                return .send(.fetchPullRequests)
+            case .alert(.dismiss):
+                return .run { _ in await self.dismiss() }
             }
         }
+        .ifLet(\.$alert, action: \.alert)
         .ifLet(\.$pullRequestDetails, action: \.pullRequestDetails) {
             PullRequestDetailsFeature()
         }

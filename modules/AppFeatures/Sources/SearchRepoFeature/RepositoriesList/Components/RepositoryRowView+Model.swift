@@ -5,6 +5,7 @@
 //  Created by Tassio Marques on 17/02/25.
 //
 
+import Foundation
 
 public extension RepositoryRowView {
     struct Model {

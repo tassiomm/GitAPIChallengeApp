@@ -12,7 +12,7 @@ public protocol NetworkEndpoint {
     var baseURL: String { get }
     var path: String { get }
     var method: HTTPMethod { get }
-    var queryItems: [URLQueryItem] { get }
+    var queryItems: [URLQueryItem]? { get }
     
     func buildRequest() -> URLRequest?
 }
