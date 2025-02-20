@@ -36,7 +36,7 @@ final class HTPPClientTests: XCTestCase {
         XCTAssertEqual(response.message, "test_StatusCodeSuccessful")
     }
     
-    // MARK: - Combine Request
+    // MARK: - Combine Request Tests
 
     var cancellable = Set<AnyCancellable>()
     

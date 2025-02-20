@@ -7,7 +7,7 @@
 
 import Foundation
 
-public func Localized(_ key: String, _ arg1: any CVarArg...) -> String {
-    let string = NSLocalizedString(key, bundle: .module, comment: "")
+public func Localized(_ key: String, bundle: Bundle, _ arg1: any CVarArg...) -> String {
+    let string = NSLocalizedString(key, bundle: bundle, comment: "")
     return String(format: string, arg1)
 }

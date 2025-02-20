@@ -37,7 +37,6 @@ enum Targets {
         repositoriesFeatureTargets
     }
     
-    // MARK: - Breeds Listing Feature Targets
     private static let repositoriesFeatureTargets: [Target] = [
         .target(
             name: "RepositoriesFeature",
@@ -60,9 +59,6 @@ extension Package.Dependency {
     static let appCorePackage: Package.Dependency = .package(name: "AppCore", path: "../AppCore")
     
     // tca
-    static let swiftCollections: Package.Dependency = .package(url: "https://github.com/apple/swift-collections.git", exact: "1.1.0")
-    static let swiftIdentifiedCollections: Package.Dependency =
-        .package(url: "https://github.com/pointfreeco/swift-identified-collections.git", exact: "1.1.0")
     static let swiftTCA: Package.Dependency =
         .package(url: "https://github.com/pointfreeco/swift-composable-architecture.git", exact: "1.17.0")
 }
