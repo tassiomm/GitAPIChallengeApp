@@ -18,6 +18,6 @@ extension GitAPIChallengeApp {
         container.register(factory: { HTTPClient() }, forMetaType: NetworkClient.self)
         container.register(factory: { JSONDecoder() }, forMetaType: DataDecoder.self)
         container.register(factory: { RepositoriesDataSource() }, forMetaType: RepositoriesDataSourceProtocol.self)
-        container.register(factory: { RepositoriesAPI() }, forMetaType: RepositoriesAPIProtocol.self)
+        container.register(factory: { RepositoriesProvider() }, forMetaType: RepositoriesProviderProtocol.self)
     }
 }

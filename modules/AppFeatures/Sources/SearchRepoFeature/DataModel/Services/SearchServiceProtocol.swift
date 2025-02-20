@@ -40,15 +40,15 @@ public struct RepositoriesDataSourceEnvironment {
 
 /// --------------
 
-public protocol RepositoriesAPIProtocol {
+public protocol RepositoriesProviderProtocol {
     func searchRepositories(language: String, page: Int, perPage: Int) async throws -> RepositoriesResponseEntity
     func fetchPullRequests(from repositoryFullName: String) async throws -> [PullRequestEntity]
 }
 
-public final actor RepositoriesAPI: RepositoriesAPIProtocol {
-    private let environment: RepositoriesAPIEnvironment
+public final actor RepositoriesProvider: RepositoriesProviderProtocol {
+    private let environment: RepositoriesProviderEnvironment
 
-    public init(environment: RepositoriesAPIEnvironment = .init()) {
+    public init(environment: RepositoriesProviderEnvironment = .init()) {
         self.environment = environment
     }
     
@@ -63,7 +63,7 @@ public final actor RepositoriesAPI: RepositoriesAPIProtocol {
     }
 }
 
-public struct RepositoriesAPIEnvironment {
+public struct RepositoriesProviderEnvironment {
     @AppDependency var dataSource: RepositoriesDataSourceProtocol
     
     public init(dataSource: AppDependency<RepositoriesDataSourceProtocol> = .init()) {

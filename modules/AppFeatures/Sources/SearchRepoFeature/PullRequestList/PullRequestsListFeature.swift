@@ -12,10 +12,10 @@ import SwiftUI
 import AppUI
 
 struct PullRequestsFeatureEnvironment {
-    @AppDependency var repositoriesAPI: RepositoriesAPIProtocol
+    @AppDependency var repositoriesProvider: RepositoriesProviderProtocol
     
-    init(repositoriesAPI: AppDependency<RepositoriesAPIProtocol> = .init()) {
-        self._repositoriesAPI = repositoriesAPI
+    init(repositoriesProvider: AppDependency<RepositoriesProviderProtocol> = .init()) {
+        self._repositoriesProvider = repositoriesProvider
     }
 }
 
@@ -60,7 +60,8 @@ struct PullRequestsListFeature {
                 return .run { [url = state.repositoryFullName] send in
                     await send(.fetchPullRequestsResponse(
                         Result {
-                            return try await environment.repositoriesAPI.fetchPullRequests(from: url)
+                            return try await environment
+                                .repositoriesProvider.fetchPullRequests(from: url)
                         }
                     ))
                 }
