@@ -14,5 +14,5 @@ public protocol NetworkClient {
     func request<T>(_ endpoint: NetworkEndpoint) async throws -> T where T: Decodable
     
     /// Swift Combine solution
-    func request<T>(_ endpoint: NetworkEndpoint) -> AnyPublisher<T, NetworkError> where T: Decodable
+    func request<T>(_ endpoint: NetworkEndpoint) -> AnyPublisher<T, Error> where T: Decodable
 }

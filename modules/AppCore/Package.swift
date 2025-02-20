@@ -80,7 +80,9 @@ enum Targets {
                 .networkingInterface,
                 .networking,
                 .dependencyInjection,
-                .cwlPreconditionTesting
+                .cwlPreconditionTesting,
+                .repositoriesAPIInterface,
+                .repositoriesAPI
             ],
             path: "Tests/CoreTests"
         ),
@@ -112,7 +114,7 @@ enum Targets {
         .target(name: "RepositoriesProvider",
                 dependencies: [
                     .networkingInterface,
-                    .byName(name: "RepositoriesAPIInterface"),
+                    .repositoriesAPIInterface,
                     .byName(name: "RepositoriesProviderInterface")
                 ],
                 path: "Sources/Domain/RepositoriesProvider")
@@ -124,10 +126,14 @@ enum Targets {
 extension PackageDescription.Target.Dependency {
     // interfaces
     static let networkingInterface: Self = .byName(name: "NetworkingInterface")
+    static let repositoriesAPIInterface: Self = .byName(name: "RepositoriesAPIInterface")
+    static let repositoriesProviderInterface: Self = .byName(name: "RepositoriesProviderInterface")
     
     // internal
     static let networking: Self = .byName(name: "Networking")
     static let dependencyInjection: Self = .byName(name: "DependencyInjection")
+    static let repositoriesAPI: Self = .byName(name: "RepositoriesAPI")
+    static let repositoriesProvider: Self = .byName(name: "RepositoriesProvider")
     
     // testing
     static let cwlPreconditionTesting: Self = .product(name: "CwlPreconditionTesting", package: "CwlPreconditionTesting")

@@ -13,8 +13,7 @@ struct EndpointStub: NetworkEndpoint {
     var baseURL: String { "" }
     let path: String = "/"
     let method: HTTPMethod = .get
-    
-    var queryItems: [URLQueryItem] = []
+    var queryItems: [URLQueryItem]?
     
     var urlRequest: URLRequest = .mocking()
     func buildRequest() -> URLRequest? {

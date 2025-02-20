@@ -18,6 +18,12 @@ public struct RepositoriesResponseEntity: Codable {
         case incompleteResults = "incomplete_results"
         case items
     }
+    
+    public init(totalCount: Int, incompleteResults: Bool, items: [RepositoryEntity]) {
+        self.totalCount = totalCount
+        self.incompleteResults = incompleteResults
+        self.items = items
+    }
 }
 
 // MARK: - Item
