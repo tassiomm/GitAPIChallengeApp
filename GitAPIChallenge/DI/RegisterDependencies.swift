@@ -10,6 +10,10 @@ import DependencyInjection
 import NetworkingInterface
 import Networking
 import SearchRepoFeature
+import RepositoriesAPI
+import RepositoriesProvider
+import RepositoriesAPIInterface
+import RepositoriesProviderInterface
 
 extension GitAPIChallengeApp {
     func registerAllDependencies() {

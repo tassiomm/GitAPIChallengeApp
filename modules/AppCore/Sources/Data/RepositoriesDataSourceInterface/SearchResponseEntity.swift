@@ -9,9 +9,9 @@ import Foundation
 
 // TODO: Move to correct layer
 public struct RepositoriesResponseEntity: Codable {
-    let totalCount: Int
-    let incompleteResults: Bool
-    let items: [RepositoryEntity]
+    public let totalCount: Int
+    public let incompleteResults: Bool
+    public let items: [RepositoryEntity]
 
     enum CodingKeys: String, CodingKey {
         case totalCount = "total_count"
@@ -22,22 +22,20 @@ public struct RepositoriesResponseEntity: Codable {
 
 // MARK: - Item
 public struct RepositoryEntity: Codable, Equatable, Hashable {
-    let id: Int
-    let name, full_name: String
-    let description: String?
-    
-    let stargazers_count: Int
-    let forks_count: Int
-    
-    let owner: OwnerEntity
+    public let id: Int
+    public let name, full_name: String
+    public let description: String?
+    public let stargazers_count: Int
+    public let forks_count: Int
+    public let owner: OwnerEntity
 }
 
 public struct OwnerEntity: Codable, Equatable, Hashable {
-    let id: Int
-    let url: String
-    let login: String
-    let avatar_url: String
-    let name: String?
+    public let id: Int
+    public let url: String
+    public let login: String
+    public let avatar_url: String
+    public let name: String?
 
     public func hash(into hasher: inout Hasher) {
         hasher.combine(id)

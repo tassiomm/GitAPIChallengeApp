@@ -10,6 +10,8 @@ import NetworkingInterface
 import ComposableArchitecture
 import SwiftUI
 import AppUI
+import RepositoriesProviderInterface
+import RepositoriesAPIInterface
 
 struct PullRequestsFeatureEnvironment {
     @AppDependency var repositoriesProvider: RepositoriesProviderProtocol

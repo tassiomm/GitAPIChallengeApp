@@ -27,7 +27,8 @@ enum Products {
     private static let coreInterfaces: [Product] = [
         .library(name: "AppCoreInterface",
                  targets: [
-                    "NetworkingInterface"
+                    "NetworkingInterface",
+                    "RepositoriesAPIInterface"
                  ])
     ]
     
@@ -37,6 +38,10 @@ enum Products {
             targets: [
                 "DependencyInjection",
                 "Networking",
+                // DataSources
+                "RepositoriesAPI",
+                // Domain
+                "RepositoriesProvider"
             ])
     ]
 }
@@ -46,6 +51,8 @@ enum Products {
 enum Targets {
     static func all() -> [Target] {
         dependenciesTargets
+            + dataSourceTargets
+            + domainTargets
     }
     
     private static let dependenciesTargets: [Target] = [
@@ -76,6 +83,38 @@ enum Targets {
             ],
             path: "Tests/CoreTests"
         ),
+    ]
+    
+    // Data Source Targets
+    private static let dataSourceTargets: [Target] = [
+        .target(name: "RepositoriesAPIInterface",
+                dependencies: [
+                    .networkingInterface
+                ],
+                path: "Sources/Data/RepositoriesDataSourceInterface"),
+        .target(name: "RepositoriesAPI",
+                dependencies: [
+                    .networkingInterface,
+                    .byName(name: "RepositoriesAPIInterface")
+                ],
+                path: "Sources/Data/RepositoriesDataSource")
+    ]
+    
+    // Data Source Targets
+    private static let domainTargets: [Target] = [
+        .target(name: "RepositoriesProviderInterface",
+                dependencies: [
+                    .networkingInterface,
+                    .byName(name: "RepositoriesAPIInterface")
+                ],
+                path: "Sources/Domain/RepositoriesProviderInterface"),
+        .target(name: "RepositoriesProvider",
+                dependencies: [
+                    .networkingInterface,
+                    .byName(name: "RepositoriesAPIInterface"),
+                    .byName(name: "RepositoriesProviderInterface")
+                ],
+                path: "Sources/Domain/RepositoriesProvider")
     ]
 }
 

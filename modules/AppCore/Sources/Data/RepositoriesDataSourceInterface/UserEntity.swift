@@ -8,7 +8,7 @@
 import Foundation
 
 public struct UserEntity: Codable, Equatable, Hashable {
-    let id: Int
-    let login: String
-    let avatar_url: String
+    public let id: Int
+    public let login: String
+    public let avatar_url: String
 }
