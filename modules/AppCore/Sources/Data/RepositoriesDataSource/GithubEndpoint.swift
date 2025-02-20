@@ -1,6 +1,6 @@
 //
 //  GithubEndpoint.swift
-//  githubapi-challenge
+//  AppCore
 //
 //  Created by Tassio Marques on 17/02/25.
 //
@@ -8,8 +8,7 @@
 import Foundation
 import NetworkingInterface
 
-// TODO: Move to appropriate module
-enum GithubEndpoint: NetworkEndpoint {
+enum RepositoriesEndpoint: NetworkEndpoint {
     case searchRepositories(language: String, page: Int, perPage: Int)
     case fetchPullRequests(repositoryFullName: String)
     
@@ -50,7 +49,7 @@ enum GithubEndpoint: NetworkEndpoint {
     }
 }
 
-extension GithubEndpoint {
+extension RepositoriesEndpoint {
     func buildRequest() -> URLRequest? {
         var components = URLComponents()
         components.scheme = scheme

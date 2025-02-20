@@ -11,7 +11,6 @@ import ComposableArchitecture
 import SwiftUI
 import AppUI
 import RepositoriesProviderInterface
-import RepositoriesAPIInterface
 
 struct SearchRepositoryFeatureEnvironment {
     @AppDependency var repositoriesProvider: RepositoriesProviderProtocol
@@ -29,7 +28,7 @@ struct RepositoryListFeature {
         
         var isLoading = false
         var page = 1
-        var repositories: [RepositoryEntity] = []
+        var repositories: [Repository] = []
         
         var errorMessage: String?
     }
@@ -37,7 +36,7 @@ struct RepositoryListFeature {
     enum Action {
         case fetchPageIfNeeded(index: Int)
         case fetchNewPage(reload: Bool)
-        case fetchNewPageResponse(Result<[RepositoryEntity], any Error>)
+        case fetchNewPageResponse(Result<[Repository], any Error>)
         
         // pullRequests destination
         case showPullRequests(repositoryFullName: String)
@@ -72,7 +71,7 @@ struct RepositoryListFeature {
                 return .run { [page = state.page] send in
                     await send(.fetchNewPageResponse(
                         Result {
-                            let response: RepositoriesResponseEntity = try await environment
+                            let response: RepositoriesResponse = try await environment
                                 .repositoriesProvider.searchRepositories(language: "Swift", page: page, perPage: batchSize)
                             return response.items
                         }

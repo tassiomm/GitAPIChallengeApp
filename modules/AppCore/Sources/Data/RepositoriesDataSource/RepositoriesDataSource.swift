@@ -19,11 +19,11 @@ public final actor RepositoriesDataSource: RepositoriesDataSourceProtocol {
     
     public func searchRepositories(language: String, page: Int, perPage: Int) async throws -> RepositoriesResponseEntity {
         return try await environment.client
-            .request(GithubEndpoint.searchRepositories(language: language, page: page, perPage: perPage))
+            .request(RepositoriesEndpoint.searchRepositories(language: language, page: page, perPage: perPage))
     }
     
     public func fetchPullRequests(from repositoryFullName: String) async throws -> [PullRequestEntity] {
-        try await environment.client.request(GithubEndpoint.fetchPullRequests(repositoryFullName: repositoryFullName))
+        try await environment.client.request(RepositoriesEndpoint.fetchPullRequests(repositoryFullName: repositoryFullName))
     }
 }
 

@@ -10,7 +10,6 @@ import ComposableArchitecture
 import SwiftUI
 import AppUI
 import RepositoriesProviderInterface
-import RepositoriesAPIInterface
 
 struct PullRequestsListView: View {
     @Perception.Bindable var store: StoreOf<PullRequestsListFeature>
@@ -68,7 +67,7 @@ struct PullRequestsListView: View {
         }
     }
     
-    private func buildPullRequestRow(for pullRequest: PullRequestEntity) -> some View {
+    private func buildPullRequestRow(for pullRequest: PullRequest) -> some View {
         VStack(alignment: .leading) {
             Text(pullRequest.title)
                 .font(.title3)
@@ -81,7 +80,7 @@ struct PullRequestsListView: View {
             
             Spacer().frame(height: 10)
             
-            UserAvatarView(model: .init(avatarUrl: pullRequest.user.avatar_url,
+            UserAvatarView(model: .init(avatarUrl: pullRequest.user.avatarURL,
                                         author: pullRequest.user.login))
             .frame(height: 65)
         }
@@ -90,7 +89,7 @@ struct PullRequestsListView: View {
                              bottom:  Layout.rowVerticalInsets,
                              trailing:  Layout.rowHorizontalInsets))
         .onTapGesture {
-            store.send(.showPullRequestDetails(url: pullRequest.html_url))
+            store.send(.showPullRequestDetails(url: pullRequest.htmlURL))
         }
     }
 }

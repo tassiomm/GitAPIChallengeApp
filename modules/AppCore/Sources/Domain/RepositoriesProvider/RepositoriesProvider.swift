@@ -17,12 +17,14 @@ public final actor RepositoriesProvider: RepositoriesProviderProtocol {
         self.environment = environment
     }
     
-    public func searchRepositories(language: String, page: Int, perPage: Int) async throws -> RepositoriesResponseEntity {
-        try await environment.dataSource.searchRepositories(language: language, page: page, perPage: perPage)
+    public func searchRepositories(language: String, page: Int, perPage: Int) async throws -> RepositoriesResponse {
+        let response = try await environment.dataSource.searchRepositories(language: language, page: page, perPage: perPage)
+        return .init(entity: response)
     }
     
-    public func fetchPullRequests(from repositoryFullName: String) async throws -> [PullRequestEntity] {
+    public func fetchPullRequests(from repositoryFullName: String) async throws -> [PullRequest] {
         try await environment.dataSource.fetchPullRequests(from: repositoryFullName)
+            .map(PullRequest.init(entity:))
     }
 }
 

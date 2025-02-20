@@ -1,11 +1,11 @@
 //
-//  PullRequest.swift
-//  AppFeatures
+//  PullRequestEntity.swift
+//  AppCore
 //
 //  Created by Tassio Marques on 19/02/25.
 //
 
-public struct PullRequestEntity: Codable, Equatable, Identifiable {
+public struct PullRequestEntity: Codable {
     public let id: Int
     public let title: String
     public let body: String?

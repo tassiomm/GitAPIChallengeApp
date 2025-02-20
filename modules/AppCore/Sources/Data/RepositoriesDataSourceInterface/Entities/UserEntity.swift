@@ -1,13 +1,13 @@
 //
 //  UserEntity.swift
-//  AppFeatures
+//  AppCore
 //
 //  Created by Tassio Marques on 19/02/25.
 //
 
 import Foundation
 
-public struct UserEntity: Codable, Equatable, Hashable {
+public struct UserEntity: Codable {
     public let id: Int
     public let login: String
     public let avatar_url: String

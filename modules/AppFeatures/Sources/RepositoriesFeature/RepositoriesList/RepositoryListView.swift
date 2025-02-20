@@ -8,7 +8,7 @@
 import ComposableArchitecture
 import SwiftUI
 import AppUI
-import RepositoriesAPIInterface
+import RepositoriesProviderInterface
 
 struct RepositoryListView: View {
     @Perception.Bindable var store: StoreOf<RepositoryListFeature>
@@ -52,18 +52,18 @@ struct RepositoryListView: View {
                 .padding(.horizontal, 15)
                 .background(Color.white)
                 .onTapGesture {
-                    store.send(.showPullRequests(repositoryFullName: element.full_name))
+                    store.send(.showPullRequests(repositoryFullName: element.fullName))
                 }
         }
     }
     
-    private func RepositoryRow(_ element: RepositoryEntity, at index: Int) -> some View {
+    private func RepositoryRow(_ element: Repository, at index: Int) -> some View {
         RepositoryRowView(model: .
                           init(name: element.name,
                                description: element.description ?? "",
-                               forkCount: element.forks_count,
-                               starsCount: element.stargazers_count,
-                               owner: .init(avatarUrl: element.owner.avatar_url, username: element.owner.login)))
+                               forkCount: element.forksCount,
+                               starsCount: element.startCount,
+                               owner: .init(avatarUrl: element.owner.avatarURL, username: element.owner.login)))
         .listRowInsets(.init(top: Layout.rowVerticalInsets,
                              leading:  Layout.rowVerticalInsets,
                              bottom:  Layout.rowVerticalInsets,

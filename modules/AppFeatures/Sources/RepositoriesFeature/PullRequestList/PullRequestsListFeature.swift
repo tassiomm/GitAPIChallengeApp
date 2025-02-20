@@ -11,7 +11,6 @@ import ComposableArchitecture
 import SwiftUI
 import AppUI
 import RepositoriesProviderInterface
-import RepositoriesAPIInterface
 
 struct PullRequestsFeatureEnvironment {
     @AppDependency var repositoriesProvider: RepositoriesProviderProtocol
@@ -29,7 +28,7 @@ struct PullRequestsListFeature {
         @Presents public var alert: AlertState<Action.Alert>?
         
         let repositoryFullName: String
-        var pullRequests: [PullRequestEntity] = []
+        var pullRequests: [PullRequest] = []
         var isLoading = false
         
         var errorMessage: String?
@@ -37,7 +36,7 @@ struct PullRequestsListFeature {
     
     enum Action {
         case fetchPullRequests
-        case fetchPullRequestsResponse(Result<[PullRequestEntity], any Error>)
+        case fetchPullRequestsResponse(Result<[PullRequest], any Error>)
         case showPullRequestDetails(url: String)
         case pullRequestDetails(PresentationAction<PullRequestDetailsFeature.Action>)
         case alert(PresentationAction<Alert>)
