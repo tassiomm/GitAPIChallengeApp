@@ -16,7 +16,7 @@ struct GitAPIChallengeApp: App {
     
     var body: some Scene {
         WindowGroup {
-            SearchRepositoryFeatureViewFactory.repositoriesView()
+            RepositoriesFeature.entry()
         }
     }
 }

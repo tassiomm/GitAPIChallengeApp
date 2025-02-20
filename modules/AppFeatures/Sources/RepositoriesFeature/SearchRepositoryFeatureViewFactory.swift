@@ -8,8 +8,8 @@
 import SwiftUI
 import ComposableArchitecture
 
-public enum SearchRepositoryFeatureViewFactory {
-    public static func repositoriesView() -> some View {
+public enum RepositoriesFeature {
+    public static func entry() -> some View {
         RepositoryListView(
             store: Store(initialState: RepositoryListFeature.State()) {
               RepositoryListFeature()
