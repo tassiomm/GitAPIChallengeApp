@@ -26,7 +26,7 @@ struct PullRequestsListView: View {
                 Color.gray.opacity(0.15)
                     .ignoresSafeArea()
                 if store.pullRequests.isEmpty && store.isLoading == false {
-                    Text(String(localized: "no_open_pull_requests_message"))
+                    Text(Localized("no_open_pull_requests_message"))
                         .multilineTextAlignment(.center)
                         .padding(.horizontal)
                         .ignoresSafeArea()

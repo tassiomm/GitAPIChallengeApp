@@ -42,7 +42,7 @@ struct UserAvatarView: View {
                 }
 
                 VStack(alignment: .leading) {
-                    Text("text_author")
+                    Text(Localized("text_author"))
                         .font(.subheadline)
                         .foregroundStyle(.gray)
                     

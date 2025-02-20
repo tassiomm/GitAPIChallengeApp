@@ -11,7 +11,6 @@
 		ADAB452B2D66C0AC009AFEA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADAB452A2D66C0AC009AFEA1 /* Assets.xcassets */; };
 		ADAB452F2D66C0AC009AFEA1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADAB452E2D66C0AC009AFEA1 /* Preview Assets.xcassets */; };
 		ADAB45452D66C26B009AFEA1 /* RegisterDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB45442D66C26B009AFEA1 /* RegisterDependencies.swift */; };
-		ADAB454B2D66C386009AFEA1 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = ADAB454A2D66C386009AFEA1 /* Localizable.xcstrings */; };
 		ADAB454F2D6782F6009AFEA1 /* AppCore in Frameworks */ = {isa = PBXBuildFile; productRef = ADAB454E2D6782F6009AFEA1 /* AppCore */; };
 		ADAB45512D6782FB009AFEA1 /* AppCoreInterface in Frameworks */ = {isa = PBXBuildFile; productRef = ADAB45502D6782FB009AFEA1 /* AppCoreInterface */; };
 		ADAB45532D678301009AFEA1 /* AppUI in Frameworks */ = {isa = PBXBuildFile; productRef = ADAB45522D678301009AFEA1 /* AppUI */; };
@@ -26,7 +25,6 @@
 		ADAB452E2D66C0AC009AFEA1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		ADAB45442D66C26B009AFEA1 /* RegisterDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterDependencies.swift; sourceTree = "<group>"; };
 		ADAB45462D66C2D5009AFEA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		ADAB454A2D66C386009AFEA1 /* Localizable.xcstrings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +99,6 @@
 		ADAB45472D66C351009AFEA1 /* Localization */ = {
 			isa = PBXGroup;
 			children = (
-				ADAB454A2D66C386009AFEA1 /* Localizable.xcstrings */,
 			);
 			path = Localization;
 			sourceTree = "<group>";
@@ -174,7 +171,6 @@
 			files = (
 				ADAB452F2D66C0AC009AFEA1 /* Preview Assets.xcassets in Resources */,
 				ADAB452B2D66C0AC009AFEA1 /* Assets.xcassets in Resources */,
-				ADAB454B2D66C386009AFEA1 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

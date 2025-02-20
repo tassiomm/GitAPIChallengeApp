@@ -8,5 +8,6 @@
 import Foundation
 
 public func Localized(_ key: String, _ arg1: any CVarArg...) -> String {
-    return String(format: NSLocalizedString(key, comment: ""), arg1)
+    let string = NSLocalizedString(key, bundle: .module, comment: "")
+    return String(format: string, arg1)
 }
