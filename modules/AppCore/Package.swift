@@ -28,7 +28,8 @@ enum Products {
         .library(name: "AppCoreInterface",
                  targets: [
                     "NetworkingInterface",
-                    "RepositoriesAPIInterface"
+                    "RepositoriesAPIInterface",
+                    "RepositoriesProviderInterface"
                  ])
     ]
     
