@@ -75,13 +75,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@ Repositories"
+            "value" : "Repositories: %@"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Repositórios %@"
+            "value" : "Repositórios: %@"
           }
         }
       }

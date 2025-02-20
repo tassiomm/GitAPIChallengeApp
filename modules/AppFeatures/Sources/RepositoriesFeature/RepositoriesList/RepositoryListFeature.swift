@@ -26,6 +26,8 @@ struct RepositoryListFeature {
     struct State: Equatable {
         @Presents public var pullRequests: PullRequestsListFeature.State?
         
+        let language: String
+        
         var isLoading = false
         var page = 1
         var repositories: [Repository] = []
@@ -68,11 +70,13 @@ struct RepositoryListFeature {
                     state.page = 1
                     state.repositories = []
                 }
-                return .run { [page = state.page] send in
+                return .run { [page = state.page, language = state.language] send in
                     await send(.fetchNewPageResponse(
                         Result {
                             let response: RepositoriesResponse = try await environment
-                                .repositoriesProvider.searchRepositories(language: "Swift", page: page, perPage: batchSize)
+                                .repositoriesProvider.searchRepositories(language: language,
+                                                                         page: page,
+                                                                         perPage: batchSize)
                             return response.items
                         }
                     ))

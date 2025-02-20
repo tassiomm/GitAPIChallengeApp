@@ -23,8 +23,9 @@ struct PullRequestsListView: View {
     var body: some View {
         WithPerceptionTracking {
             ZStack {
-                Color.gray.opacity(0.15)
+                Color.backgroundGray
                     .ignoresSafeArea()
+                
                 if store.pullRequests.isEmpty && store.isLoading == false {
                     Text(Localized("no_open_pull_requests_message"))
                         .multilineTextAlignment(.center)

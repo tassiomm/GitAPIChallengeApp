@@ -35,12 +35,12 @@ struct RepositoryListView: View {
                         }
                     }
                     .onAppear { store.send(.fetchNewPage(reload: true)) }
-                    .navigationTitle(Localized("repositories_title", "Swift"))
+                    .navigationTitle(Localized("repositories_title", store.language))
                     .navigationBarTitleDisplayMode(.inline)
                     .navigationDestination(item: $store.scope(state: \.pullRequests, action: \.pullRequests)) { store in
                         PullRequestsListView(store: store)
                     }
-                }.background(Color.gray.opacity(0.15))
+                }.background(Color.backgroundGray)
             }
         }
     }

@@ -9,4 +9,5 @@ import SwiftUI
 
 public extension Color {
     static let darkYellow = Color("darkYellow", bundle: .module)
+    static let backgroundGray = Color.gray.opacity(0.15)
 }
