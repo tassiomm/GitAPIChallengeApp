@@ -41,13 +41,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Something went wrong. Please try again."
+            "value" : "Something went wrong. Please try again in a few seconds."
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Algo deu errado. Por favor, tente novamente."
+            "value" : "Algo deu errado. Por favor, tente novamente em alguns segundos."
           }
         }
       }
