@@ -15,7 +15,7 @@
 		ADAB454F2D6782F6009AFEA1 /* AppCore in Frameworks */ = {isa = PBXBuildFile; productRef = ADAB454E2D6782F6009AFEA1 /* AppCore */; };
 		ADAB45512D6782FB009AFEA1 /* AppCoreInterface in Frameworks */ = {isa = PBXBuildFile; productRef = ADAB45502D6782FB009AFEA1 /* AppCoreInterface */; };
 		ADAB45532D678301009AFEA1 /* AppUI in Frameworks */ = {isa = PBXBuildFile; productRef = ADAB45522D678301009AFEA1 /* AppUI */; };
-		ADAB45552D678678009AFEA1 /* AppFeatures in Frameworks */ = {isa = PBXBuildFile; productRef = ADAB45542D678678009AFEA1 /* AppFeatures */; };
+		ADAB45572D678E4B009AFEA1 /* AppFeatures in Frameworks */ = {isa = PBXBuildFile; productRef = ADAB45562D678E4B009AFEA1 /* AppFeatures */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +37,7 @@
 				ADAB45532D678301009AFEA1 /* AppUI in Frameworks */,
 				ADAB454F2D6782F6009AFEA1 /* AppCore in Frameworks */,
 				ADAB45512D6782FB009AFEA1 /* AppCoreInterface in Frameworks */,
-				ADAB45552D678678009AFEA1 /* AppFeatures in Frameworks */,
+				ADAB45572D678E4B009AFEA1 /* AppFeatures in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,7 +126,7 @@
 				ADAB454E2D6782F6009AFEA1 /* AppCore */,
 				ADAB45502D6782FB009AFEA1 /* AppCoreInterface */,
 				ADAB45522D678301009AFEA1 /* AppUI */,
-				ADAB45542D678678009AFEA1 /* AppFeatures */,
+				ADAB45562D678E4B009AFEA1 /* AppFeatures */,
 			);
 			productName = GitAPIChallenge;
 			productReference = ADAB45232D66C0AB009AFEA1 /* GitAPIChallenge.app */;
@@ -419,7 +419,7 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = AppUI;
 		};
-		ADAB45542D678678009AFEA1 /* AppFeatures */ = {
+		ADAB45562D678E4B009AFEA1 /* AppFeatures */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = AppFeatures;
 		};

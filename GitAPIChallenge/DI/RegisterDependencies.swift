@@ -9,7 +9,7 @@ import Foundation
 import DependencyInjection
 import NetworkingInterface
 import Networking
-import SearchRepoFeature
+import RepositoriesFeature
 import RepositoriesAPI
 import RepositoriesProvider
 import RepositoriesAPIInterface

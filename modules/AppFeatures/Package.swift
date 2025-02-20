@@ -25,7 +25,6 @@ enum Products {
     private static let featureProducts: [Product] = [
         .library(
             name: "AppFeatures",
-            type: .static,
             targets: [
                 "RepositoriesFeature"
             ]
