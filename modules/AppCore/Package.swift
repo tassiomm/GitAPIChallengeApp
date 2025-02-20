@@ -107,15 +107,13 @@ enum Targets {
     private static let domainTargets: [Target] = [
         .target(name: "RepositoriesProviderInterface",
                 dependencies: [
-                    .networkingInterface,
                     .byName(name: "RepositoriesAPIInterface")
                 ],
                 path: "Sources/Domain/RepositoriesProviderInterface"),
         .target(name: "RepositoriesProvider",
                 dependencies: [
-                    .networkingInterface,
                     .repositoriesAPIInterface,
-                    .byName(name: "RepositoriesProviderInterface")
+                    .repositoriesProviderInterface
                 ],
                 path: "Sources/Domain/RepositoriesProvider")
     ]

@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import SearchRepoFeature
+import RepositoriesFeature
 
 @main
 struct GitAPIChallengeApp: App {

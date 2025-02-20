@@ -11,6 +11,7 @@ let package = Package(
     products: Products.all(),
     dependencies: [
         .appUILibrary,
+        .appCorePackage,
         .swiftTCA
     ],
     targets: Targets.all()
@@ -26,7 +27,7 @@ enum Products {
             name: "AppFeatures",
             type: .static,
             targets: [
-                "SearchRepoFeature"
+                "RepositoriesFeature"
             ]
         )
     ]
@@ -34,19 +35,20 @@ enum Products {
 
 enum Targets {
     static func all() -> [Target] {
-        searchRepoFeatureTargets
+        repositoriesFeatureTargets
     }
     
     // MARK: - Breeds Listing Feature Targets
-    private static let searchRepoFeatureTargets: [Target] = [
+    private static let repositoriesFeatureTargets: [Target] = [
         .target(
-            name: "SearchRepoFeature",
+            name: "RepositoriesFeature",
             dependencies:
             [
                 .appUI,
-                .tca
+                .tca,
+                .appCoreInterfaces
             ],
-            path: "Sources/SearchRepoFeature"
+            path: "Sources/RepositoriesFeature"
         )
     ]
 }
@@ -56,6 +58,7 @@ enum Targets {
 extension Package.Dependency {
     // MARK: Internal
     static let appUILibrary: Package.Dependency = .package(name: "AppUI", path: "../AppUI")
+    static let appCorePackage: Package.Dependency = .package(name: "AppCore", path: "../AppCore")
     
     // tca
     static let swiftCollections: Package.Dependency = .package(url: "https://github.com/apple/swift-collections.git", exact: "1.1.0")
@@ -70,6 +73,7 @@ extension Package.Dependency {
 extension PackageDescription.Target.Dependency {
     // MARK: Local
     static let appUI: Self = .product(name: "AppUI", package: "AppUI")
+    static let appCoreInterfaces: Self = .product(name: "AppCoreInterface", package: "AppCore")
     
     // tca
     static let tca: Self = .product(name: "ComposableArchitecture", package: "swift-composable-architecture")

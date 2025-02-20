@@ -10,12 +10,12 @@
 		ADAB45272D66C0AB009AFEA1 /* GitAPIChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB45262D66C0AB009AFEA1 /* GitAPIChallengeApp.swift */; };
 		ADAB452B2D66C0AC009AFEA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADAB452A2D66C0AC009AFEA1 /* Assets.xcassets */; };
 		ADAB452F2D66C0AC009AFEA1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADAB452E2D66C0AC009AFEA1 /* Preview Assets.xcassets */; };
-		ADAB453C2D66C1EF009AFEA1 /* AppCore in Frameworks */ = {isa = PBXBuildFile; productRef = ADAB453B2D66C1EF009AFEA1 /* AppCore */; };
-		ADAB453E2D66C1EF009AFEA1 /* AppCoreInterface in Frameworks */ = {isa = PBXBuildFile; productRef = ADAB453D2D66C1EF009AFEA1 /* AppCoreInterface */; };
-		ADAB45402D66C1EF009AFEA1 /* AppFeatures in Frameworks */ = {isa = PBXBuildFile; productRef = ADAB453F2D66C1EF009AFEA1 /* AppFeatures */; };
-		ADAB45422D66C1EF009AFEA1 /* AppUI in Frameworks */ = {isa = PBXBuildFile; productRef = ADAB45412D66C1EF009AFEA1 /* AppUI */; };
 		ADAB45452D66C26B009AFEA1 /* RegisterDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB45442D66C26B009AFEA1 /* RegisterDependencies.swift */; };
 		ADAB454B2D66C386009AFEA1 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = ADAB454A2D66C386009AFEA1 /* Localizable.xcstrings */; };
+		ADAB454F2D6782F6009AFEA1 /* AppCore in Frameworks */ = {isa = PBXBuildFile; productRef = ADAB454E2D6782F6009AFEA1 /* AppCore */; };
+		ADAB45512D6782FB009AFEA1 /* AppCoreInterface in Frameworks */ = {isa = PBXBuildFile; productRef = ADAB45502D6782FB009AFEA1 /* AppCoreInterface */; };
+		ADAB45532D678301009AFEA1 /* AppUI in Frameworks */ = {isa = PBXBuildFile; productRef = ADAB45522D678301009AFEA1 /* AppUI */; };
+		ADAB45552D678678009AFEA1 /* AppFeatures in Frameworks */ = {isa = PBXBuildFile; productRef = ADAB45542D678678009AFEA1 /* AppFeatures */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,10 +34,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ADAB45422D66C1EF009AFEA1 /* AppUI in Frameworks */,
-				ADAB453C2D66C1EF009AFEA1 /* AppCore in Frameworks */,
-				ADAB453E2D66C1EF009AFEA1 /* AppCoreInterface in Frameworks */,
-				ADAB45402D66C1EF009AFEA1 /* AppFeatures in Frameworks */,
+				ADAB45532D678301009AFEA1 /* AppUI in Frameworks */,
+				ADAB454F2D6782F6009AFEA1 /* AppCore in Frameworks */,
+				ADAB45512D6782FB009AFEA1 /* AppCoreInterface in Frameworks */,
+				ADAB45552D678678009AFEA1 /* AppFeatures in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,10 +123,10 @@
 			);
 			name = GitAPIChallenge;
 			packageProductDependencies = (
-				ADAB453B2D66C1EF009AFEA1 /* AppCore */,
-				ADAB453D2D66C1EF009AFEA1 /* AppCoreInterface */,
-				ADAB453F2D66C1EF009AFEA1 /* AppFeatures */,
-				ADAB45412D66C1EF009AFEA1 /* AppUI */,
+				ADAB454E2D6782F6009AFEA1 /* AppCore */,
+				ADAB45502D6782FB009AFEA1 /* AppCoreInterface */,
+				ADAB45522D678301009AFEA1 /* AppUI */,
+				ADAB45542D678678009AFEA1 /* AppFeatures */,
 			);
 			productName = GitAPIChallenge;
 			productReference = ADAB45232D66C0AB009AFEA1 /* GitAPIChallenge.app */;
@@ -407,21 +407,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		ADAB453B2D66C1EF009AFEA1 /* AppCore */ = {
+		ADAB454E2D6782F6009AFEA1 /* AppCore */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = AppCore;
 		};
-		ADAB453D2D66C1EF009AFEA1 /* AppCoreInterface */ = {
+		ADAB45502D6782FB009AFEA1 /* AppCoreInterface */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = AppCoreInterface;
 		};
-		ADAB453F2D66C1EF009AFEA1 /* AppFeatures */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = AppFeatures;
-		};
-		ADAB45412D66C1EF009AFEA1 /* AppUI */ = {
+		ADAB45522D678301009AFEA1 /* AppUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = AppUI;
+		};
+		ADAB45542D678678009AFEA1 /* AppFeatures */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AppFeatures;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
