@@ -35,9 +35,6 @@
         }
       }
     },
-    "Hello, world!" : {
-
-    },
     "repositories_title" : {
       "extractionState" : "manual",
       "localizations" : {

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		ADAB45272D66C0AB009AFEA1 /* GitAPIChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB45262D66C0AB009AFEA1 /* GitAPIChallengeApp.swift */; };
-		ADAB45292D66C0AB009AFEA1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB45282D66C0AB009AFEA1 /* ContentView.swift */; };
 		ADAB452B2D66C0AC009AFEA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADAB452A2D66C0AC009AFEA1 /* Assets.xcassets */; };
 		ADAB452F2D66C0AC009AFEA1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADAB452E2D66C0AC009AFEA1 /* Preview Assets.xcassets */; };
 		ADAB453C2D66C1EF009AFEA1 /* AppCore in Frameworks */ = {isa = PBXBuildFile; productRef = ADAB453B2D66C1EF009AFEA1 /* AppCore */; };
@@ -22,7 +21,6 @@
 /* Begin PBXFileReference section */
 		ADAB45232D66C0AB009AFEA1 /* GitAPIChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitAPIChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADAB45262D66C0AB009AFEA1 /* GitAPIChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitAPIChallengeApp.swift; sourceTree = "<group>"; };
-		ADAB45282D66C0AB009AFEA1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		ADAB452A2D66C0AC009AFEA1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ADAB452C2D66C0AC009AFEA1 /* GitAPIChallenge.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GitAPIChallenge.entitlements; sourceTree = "<group>"; };
 		ADAB452E2D66C0AC009AFEA1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -70,7 +68,6 @@
 				ADAB45462D66C2D5009AFEA1 /* Info.plist */,
 				ADAB45432D66C24A009AFEA1 /* DI */,
 				ADAB45262D66C0AB009AFEA1 /* GitAPIChallengeApp.swift */,
-				ADAB45282D66C0AB009AFEA1 /* ContentView.swift */,
 				ADAB452A2D66C0AC009AFEA1 /* Assets.xcassets */,
 				ADAB452C2D66C0AC009AFEA1 /* GitAPIChallenge.entitlements */,
 				ADAB452D2D66C0AC009AFEA1 /* Preview Content */,
@@ -188,7 +185,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ADAB45292D66C0AB009AFEA1 /* ContentView.swift in Sources */,
 				ADAB45272D66C0AB009AFEA1 /* GitAPIChallengeApp.swift in Sources */,
 				ADAB45452D66C26B009AFEA1 /* RegisterDependencies.swift in Sources */,
 			);
