@@ -66,7 +66,7 @@ struct PullRequestsListFeature {
                                 .repositoriesProvider.fetchPullRequests(from: url)
                         }
                     ))
-                }
+                }.cancellable(id: "fetchPullRequests")
             case .fetchPullRequestsResponse(.success(let pullRequests)):
                 state.isLoading = false
                 state.pullRequests = pullRequests

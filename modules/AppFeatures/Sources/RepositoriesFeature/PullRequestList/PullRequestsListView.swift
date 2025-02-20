@@ -50,6 +50,9 @@ struct PullRequestsListView: View {
             }
             .alert($store.scope(state: \.alert, action: \.alert))
         }
+        .refreshable {
+            store.send(.fetchPullRequests)
+        }
     }
     
     private func PullRequestListing() -> some View {

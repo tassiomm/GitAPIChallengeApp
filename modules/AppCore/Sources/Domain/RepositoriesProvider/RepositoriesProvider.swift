@@ -18,13 +18,11 @@ public final actor RepositoriesProvider: RepositoriesProviderProtocol {
     }
     
     public func searchRepositories(language: String, page: Int, perPage: Int) async throws -> RepositoriesResponseEntity {
-        return try await environment.dataSource
-            .searchRepositories(language: language, page: page, perPage: perPage)
+        try await environment.dataSource.searchRepositories(language: language, page: page, perPage: perPage)
     }
     
     public func fetchPullRequests(from repositoryFullName: String) async throws -> [PullRequestEntity] {
-        try await environment.dataSource
-            .fetchPullRequests(from: repositoryFullName)
+        try await environment.dataSource.fetchPullRequests(from: repositoryFullName)
     }
 }
 
