@@ -15,6 +15,9 @@ let package = Package(
             name: "AppUI",
             targets: ["AppUI"]),
     ],
+    dependencies: [
+        .swiftSnapshotTesting
+    ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
@@ -22,7 +25,20 @@ let package = Package(
             name: "AppUI"),
         .testTarget(
             name: "AppUITests",
-            dependencies: ["AppUI"]
+            dependencies: [
+                "AppUI",
+                .snapshotTesting
+            ],
+            exclude: ["__Snapshots__"]
         ),
     ]
 )
+
+extension PackageDescription.Target.Dependency {
+    static let snapshotTesting: Self = .product(name: "SnapshotTesting", package: "swift-snapshot-testing")
+}
+
+extension PackageDescription.Package.Dependency {
+    static let swiftSnapshotTesting: Package.Dependency =
+        .package(url: "https://github.com/pointfreeco/swift-snapshot-testing.git", from: "1.18.0")
+}
