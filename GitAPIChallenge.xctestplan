@@ -1,0 +1,43 @@
+{
+  "configurations" : [
+    {
+      "id" : "A5999A63-F142-4932-836B-982ECAB045B7",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:GitAPIChallenge.xcodeproj",
+      "identifier" : "ADAB45222D66C0AB009AFEA1",
+      "name" : "GitAPIChallenge"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:modules\/AppCore",
+        "identifier" : "AppCoreTests",
+        "name" : "AppCoreTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:modules\/AppFeatures",
+        "identifier" : "AppFeaturesTests",
+        "name" : "AppFeaturesTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:modules\/AppUI",
+        "identifier" : "AppUITests",
+        "name" : "AppUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

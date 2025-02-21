@@ -18,6 +18,9 @@
       location = "container:"
       name = "app">
       <FileRef
+         location = "group:/Users/tassiomarques/Developer/GitAPIChallenge/GitAPIChallenge.xctestplan">
+      </FileRef>
+      <FileRef
          location = "group:GitAPIChallenge.xcodeproj">
       </FileRef>
    </Group>
