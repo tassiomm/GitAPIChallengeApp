@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD13ADC72D6855DC00AB7D1E /* AppFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = AD13ADC62D6855DC00AB7D1E /* AppFoundation */; };
 		AD71D5B12D67F36300771DF1 /* AppUI in Frameworks */ = {isa = PBXBuildFile; productRef = AD71D5B02D67F36300771DF1 /* AppUI */; };
 		ADAB45272D66C0AB009AFEA1 /* GitAPIChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB45262D66C0AB009AFEA1 /* GitAPIChallengeApp.swift */; };
 		ADAB452B2D66C0AC009AFEA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADAB452A2D66C0AC009AFEA1 /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 				AD71D5B12D67F36300771DF1 /* AppUI in Frameworks */,
 				ADAB455D2D67F21D009AFEA1 /* AppCore in Frameworks */,
 				ADAB455F2D67F21D009AFEA1 /* AppCoreInterface in Frameworks */,
+				AD13ADC72D6855DC00AB7D1E /* AppFoundation in Frameworks */,
 				ADAB45612D67F21D009AFEA1 /* AppFeatures in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -116,6 +118,7 @@
 				ADAB455E2D67F21D009AFEA1 /* AppCoreInterface */,
 				ADAB45602D67F21D009AFEA1 /* AppFeatures */,
 				AD71D5B02D67F36300771DF1 /* AppUI */,
+				AD13ADC62D6855DC00AB7D1E /* AppFoundation */,
 			);
 			productName = GitAPIChallenge;
 			productReference = ADAB45232D66C0AB009AFEA1 /* GitAPIChallenge.app */;
@@ -399,6 +402,10 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		AD13ADC62D6855DC00AB7D1E /* AppFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AppFoundation;
+		};
 		AD71D5B02D67F36300771DF1 /* AppUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = AppUI;

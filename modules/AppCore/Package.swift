@@ -22,6 +22,7 @@ enum Products {
     static func all() -> [Product] {
         coreInterfaces
         + coreProducts
+        + appFoundationProduct
     }
     
     private static let coreInterfaces: [Product] = [
@@ -45,6 +46,14 @@ enum Products {
                 "RepositoriesRepository"
             ])
     ]
+    
+    private static let appFoundationProduct: [Product] = [
+        .library(
+            name: "AppFoundation",
+            targets: [
+                "AppFoundation"
+            ])
+    ]
 }
 
 // MARK: - TARGETS
@@ -54,6 +63,7 @@ enum Targets {
         dependenciesTargets
             + dataSourceTargets
             + domainTargets
+            + appFoundation
     }
     
     private static let dependenciesTargets: [Target] = [
@@ -70,6 +80,7 @@ enum Targets {
                 path: "Sources/Dependencies/NetworkingInterface"),
         .target(name: "Networking",
                 dependencies: [
+                    .dependencyInjection,
                     .networkingInterface,
                 ],
                 path: "Sources/Dependencies/Networking"),
@@ -116,6 +127,11 @@ enum Targets {
                     .repositoriesRepositoryInterface
                 ],
                 path: "Sources/Domain/RepositoriesRepository")
+    ]
+    
+    private static let appFoundation: [Target] = [
+        .target(name: "AppFoundation", 
+                path: "Sources/AppFoundation")
     ]
 }
 

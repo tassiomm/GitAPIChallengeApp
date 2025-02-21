@@ -9,6 +9,7 @@ import Foundation
 import DependencyInjection
 import NetworkingInterface
 import RepositoriesAPIInterface
+import AppFoundation
 
 public final actor RepositoriesDataSource: RepositoriesDataSourceProtocol {
     private let environment: RepositoriesDataSourceEnvironment
@@ -49,12 +50,12 @@ public final actor RepositoriesDataSource: RepositoriesDataSourceProtocol {
 
 public struct RepositoriesDataSourceEnvironment {
     @AppDependency var client: NetworkClient
-    @AppDependency var repositoryPageCache: RepositoryPageCachable
-    @AppDependency var pullRequestsCache: PullRequestsCachable
+    @AppDependency var repositoryPageCache: Cache<RepositoriesResponseEntity>
+    @AppDependency var pullRequestsCache: Cache<[PullRequestEntity]>
 
     public init(client: AppDependency<NetworkClient> = .init(),
-                repositoryPageCache: AppDependency<RepositoryPageCachable> = .init(),
-                pullRequestsCache: AppDependency<PullRequestsCachable> = .init()) {
+                repositoryPageCache: AppDependency<Cache<RepositoriesResponseEntity>> = .init(),
+                pullRequestsCache: AppDependency<Cache<[PullRequestEntity]>> = .init()) {
         self._client = client
         self._repositoryPageCache = repositoryPageCache
         self._pullRequestsCache = pullRequestsCache

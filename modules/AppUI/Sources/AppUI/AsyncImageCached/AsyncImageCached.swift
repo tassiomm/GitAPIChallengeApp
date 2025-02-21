@@ -7,14 +7,20 @@
 
 import Foundation
 import SwiftUI
+import AppFoundation
+
+public extension Cache where Entry == Image {
+    static let limitOf5MB = 5 * 1024 * 1024
+    static let shared: Cache = .customPolicy(totalLimit: limitOf5MB)
+}
 
 public struct AsyncImageCached<Content>: View where Content: View  {
     private let url: URL?
-    private let cache: any ImageCachable
+    private let cache: Cache<Image>
     private let content: (AsyncImagePhase) -> Content
     
     public init(url: URL?,
-                cache: any ImageCachable = ImageCache.shared,
+                cache: Cache<Image> = .shared,
                 content: @escaping (AsyncImagePhase) -> Content) {
         self.url = url
         self.cache = cache
@@ -42,5 +48,3 @@ public struct AsyncImageCached<Content>: View where Content: View  {
         case invalidURL
     }
 }
-
-
