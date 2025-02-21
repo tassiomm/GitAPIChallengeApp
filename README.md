@@ -52,7 +52,7 @@ Multiplos targets e produtos definem cada Feature. Uma feature é desenvolvida c
 Uma Feature é localizada através da inclusão de seu próprio arquivo de localização em módulo. Boas prática do desenolvimento definem que cada Feature terá seu próprio arquivo de localização e uma função não pública Localized para buscar a string em seu próprio módulo.
 
 ## Caching
-Presente em "AppFoundation" está o cache responsável por realizar o Cache de dados através do NSCache. Caso desejado, um cache pode ser criado com diferentes políticas de limite de armazemaneto.
+Presente em "AppFoundation" está o cache responsável por realizar caching de dados utilizando NSCache. Caso desejado, um cache pode ser criado com diferentes políticas de limite de armazemaneto. O Cache está presente no carregamento de imagens, carregamento da lista de repositórios, e da lista de pull requests.
 
 # Bibliotecas
 Buscando simplificar o desenvolvimento e evitar a utilização de demasiadas bibliotecas externas que afetaria tempo de build e potenciais conflitos futuros de versionamentos, limitei o uso a apenas três bibliotecas externas.
