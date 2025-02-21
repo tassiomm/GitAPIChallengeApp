@@ -1,5 +1,23 @@
 # GitAPIChallengeApp
 
+# Setup
+
+O projeto não utiliza nenhum gerador de projeto. Basta abrir o **Workpace** `GitAPIChallenge.xcworkspace`.
+
+A medida de o XCode resolve o gráfico de dependências, você deverá se deparar com um alerta no "issue navigator" à esquerda. O Xcode perde autorização de confirmação de segurança para utilizar os macros da biblioteca [swift-composable-architecture](https://github.com/pointfreeco/swift-composable-architecture.git).
+
+Exemplo:
+![Alertas](macro_autorization_warning.png)
+
+Ao clicar em um dos alertas, esse diálogo irá pedir autorização dos macros "Trust & Enable".
+![Confirmação](macro_autorization_trust_and_enable.png)
+
+Após conceder a autorização basta rodar o aplicativo utilizando o scheme `GitAPIChallenge`. 
+
+
+### Tests
+Para rodar o testes, acesse a aba "Test Navigator" e execute os testes do test plan "GitAPIChallenge.xctestplan".
+
 # Arquitetura
 Desenvolvimento tres camadas: Presentation (Feature), Domain, Data). As camadas definem uma separação clara de responsabilidade entre a construção da view, a construção do modelo de dados e como os dados são disponibilizados. Uma camada de Networking alimenta DataSources em chamadas HTTP.
 
