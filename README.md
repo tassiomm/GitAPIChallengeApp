@@ -18,18 +18,18 @@ Após conceder a autorização basta rodar o aplicativo utilizando o scheme `Git
 
 
 ### Tests
-Para rodar o testes, acesse a aba "Test Navigator" e execute os testes do test plan "GitAPIChallenge.xctestplan".
+Para rodar os testes, acesse a aba "Test Navigator" e execute os testes do test plan "GitAPIChallenge.xctestplan".
 
 # Arquitetura
-Desenvolvimento tres camadas: Presentation (Feature), Domain, Data). As camadas definem uma separação clara de responsabilidade entre a construção da view, a construção do modelo de dados e como os dados são disponibilizados. Uma camada de Networking alimenta DataSources em chamadas HTTP.
+Desenvolvimento em três camadas: Presentation (View/Feature), Domain (Repository) e Data (DataSource). As camadas definem uma separação clara de responsabilidade entre a construção da view, a construção do modelo de dados e como os dados são buscados. Uma camada de Networking alimenta DataSources em chamadas HTTP.
 
 ## Comunicação entre camadas
-Desenvolvida a comunicação entre camadas  com Swift Concurrency `async/await`. A comunicação utilizando async/await combina a eficiência de uma solução pura em Swift com a legibilidade da concorência estruturada (`async/await`).
+Desenvolvida a comunicação entre camadas com Swift Concurrency `async/await`. A comunicação utilizando async/await combina a eficiência de uma solução pura em Swift com a legibilidade da concorência estruturada (`async/await`).
 
-`Combine`: Enquanto a aplicação não é alimentada, um exemplo de implementação utilizado Combine está disponível pra uso na camada de Networking (`HTTPClient`).
+`Combine`: Enquanto a aplicação não é alimentada por Combine, um exemplo de implementação está disponível para uso na camada de Networking (`HTTPClient`).
 
 # Modularização (SPM)
-A modularização auxilia no desenvolvimento de aplicações escaláveis pois garante a independencia de partes da aplicação. O tempo de build também é melhorado já que um módulo buildado não fará uma nova build a menos que diretamenta modificado.
+A modularização auxilia no desenvolvimento de aplicações escaláveis e clara separação de módulos. A seguir veremos o que cada módulo implementa.
 
 ## AppUI: Para components de UI (desenvolvido com SwiftUI)
 Componentes de UI pequenos, como também alguns mais complexos (ex. `AsyncImageCached`), podem ser encontrados  aqui. Aulixiares de UI também são definidos aqui, como `CustomColor` ou `Localized` (para facilitar a definição de uma string localizada).
@@ -51,17 +51,20 @@ Multiplos targets e produtos definem cada Feature. Uma feature é desenvolvida c
 ### Localization
 Uma Feature é localizada através da inclusão de seu próprio arquivo de localização em módulo. Boas prática do desenolvimento definem que cada Feature terá seu próprio arquivo de localização e uma função não pública Localized para buscar a string em seu próprio módulo.
 
+## Caching
+Presente em "AppFoundation" está o cache responsável por realizar caching de dados utilizando NSCache. Caso desejado, um cache pode ser criado com diferentes políticas de limite de armazemaneto. O Cache está presente no carregamento de imagens, carregamento da lista de repositórios, e da lista de pull requests.
+
 # Bibliotecas
 Buscando simplificar o desenvolvimento e evitar a utilização de demasiadas bibliotecas externas que afetaria tempo de build e potenciais conflitos futuros de versionamentos, limitei o uso a apenas três bibliotecas externas.
 
 1) [swift-composable-architecture](https://github.com/pointfreeco/swift-composable-architecture.git)
 
-The Composable Architecture (TCA) alimenta toda a construção de lógica na criação de views do App. Ela garante uma separação de responsabilidades única ao simplificar uma lógica de estado centralizado que são atualizados através de ações, que por sua vez podem ativar outra ação assincrona ou não. Tudo isso é simplificado para o desenvolvedor através de um Reducer que expõe um enum com todas as ações. O TCA conta com diversos checks de segurança que garantem a integridade e previsibilidade de fluxo. Além disso a testabilidade do TCA se prova bastante eficaz e segura através de uma API de teste disponibilizada pela própria biblioteca.
+The Composable Architecture (TCA) alimenta toda a construção de lógica na criação de View. Ela garante uma separação de responsabilidades única ao simplificar uma lógica de estado centralizado que são atualizados através de ações, que por sua vez podem ativar outras ações assincronas ou não. Tudo isso é simplificado para o desenvolvedor através de um Reducer que expõe um enum com todas as ações. O TCA conta com diversos checks de segurança que garantem a integridade e previsibilidade de fluxo. Além disso a testabilidade do TCA se prova bastante eficaz e segura através de uma API de teste disponibilizada pela própria biblioteca. Apesar de exigir uma curva maior de aprendizado, é uma solução completa para aplicações de grande porte.
 
 2) [swift-snapshot-testing](https://github.com/pointfreeco/swift-snapshot-testing.git)
 
-Essa biblioteca é essencial no teste de view. Capaz de detecta qualquer mudança em uma View através de comparação de snapshots tiradas da view, ela garante consitência e previsibilidade de layout. Portanto, essencial para uma aplicação que queira se preocupar com cada detalhe da experiência visual do usuário.
+Essa biblioteca é essencial nos testes de View. Capaz de detectar qualquer mudança em uma View através de comparação de Snapshots, ela garante consistência e previsibilidade de layout. Portanto, é essencial para uma aplicação que queira se preocupar com cada detalhe da experiência visual do usuário.
 
 3) [CwlPreconditionTesting](https://github.com/mattgallagher/CwlPreconditionTesting.git)
 
-Capaz de detectar `fatalErrors` esse biblioteca é essecial para testar cenários de crash e garantir que estão ocorrendo nos lugares que deveriam para detectar falhas no desenvolvimento.
+Capaz de detectar `fatalError` esse biblioteca é essecial para testar cenários de crash e garantir que estão ocorrendo nos lugares corretos e detectar falhas no desenvolvimento.
