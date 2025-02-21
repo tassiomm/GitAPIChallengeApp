@@ -23,5 +23,8 @@ extension GitAPIChallengeApp {
         container.register(factory: { JSONDecoder() }, forMetaType: DataDecoder.self)
         container.register(factory: { RepositoriesDataSource() }, forMetaType: RepositoriesDataSourceProtocol.self)
         container.register(factory: { RepositoriesRepository() }, forMetaType: RepositoriesRepositoryProtocol.self)
+
+        container.register(instance: RepositoryPageCache(), forMetaType: RepositoryPageCachable.self)
+        container.register(instance: PullRequestsCache(), forMetaType: PullRequestsCachable.self)
     }
 }

@@ -38,7 +38,7 @@ struct RepositoryListFeature {
     enum Action {
         case fetchPageIfNeeded(index: Int)
         case fetchNewPage(reload: Bool)
-        case fetchNewPageResponse(Result<[Repository], any Error>)
+        case fetchNewPageResponse(Result<[Repository], any Error>, reload: Bool)
         
         // pullRequests destination
         case showPullRequests(repositoryFullName: String)
@@ -62,32 +62,30 @@ struct RepositoryListFeature {
                 }
                 return .none
             case .fetchNewPage(let reload):
-                if state.isLoading {
-                    return .none
-                }
-                state.isLoading = true
+                if state.isLoading { return .none }
                 if reload {
                     state.page = 1
-                    state.repositories = []
                 }
+                state.isLoading = true
                 return .run { [page = state.page, language = state.language] send in
                     await send(.fetchNewPageResponse(
                         Result {
                             let response: RepositoriesResponse = try await environment
-                                .repositoriesRepository.searchRepositories(language: language,
-                                                                         page: page,
-                                                                         perPage: batchSize)
+                                .repositoriesRepository.searchRepositories(language: language, page: page, perPage: batchSize)
                             return response.items
-                        }
-                    ))
+                        }, reload: reload))
                 }
-            case let .fetchNewPageResponse(.success(repositories)):
+            case let .fetchNewPageResponse(.success(repositories), reload):
                 state.errorMessage = nil
                 state.isLoading = false
                 state.page += 1
-                state.repositories.append(contentsOf: repositories)
+                if reload {
+                    state.repositories = repositories
+                } else {
+                    state.repositories.append(contentsOf: repositories)
+                }
                 return .none
-            case let .fetchNewPageResponse(.failure(error)):
+            case let .fetchNewPageResponse(.failure(error), _):
                 state.isLoading = false
                 state.errorMessage = error.localizedDescription
                 return .none

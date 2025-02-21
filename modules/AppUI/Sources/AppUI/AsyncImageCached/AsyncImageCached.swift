@@ -14,8 +14,8 @@ public struct AsyncImageCached<Content>: View where Content: View  {
     private let content: (AsyncImagePhase) -> Content
     
     public init(url: URL?,
-         cache: any ImageCachable = ImageCache.shared,
-         content: @escaping (AsyncImagePhase) -> Content) {
+                cache: any ImageCachable = ImageCache.shared,
+                content: @escaping (AsyncImagePhase) -> Content) {
         self.url = url
         self.cache = cache
         self.content = content

@@ -21,8 +21,9 @@ public struct MessageActionView: View {
     }
     
     public var body: some View {
-        VStack(alignment: .center, spacing: 20) {
+        VStack(alignment: .center, spacing: 30) {
             Text(title)
+                .multilineTextAlignment(.center)
                 .font(.headline)
                 .lineLimit(nil)
             

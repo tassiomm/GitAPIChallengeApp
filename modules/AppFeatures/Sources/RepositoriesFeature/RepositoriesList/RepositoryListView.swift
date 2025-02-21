@@ -15,6 +15,7 @@ struct RepositoryListView: View {
     
     enum Layout {
         static let rowVerticalInsets = 12.0
+        static let errorViewHorizontalPadding: CGFloat = 30
     }
     
     var body: some View {
@@ -26,25 +27,43 @@ struct RepositoryListView: View {
                         
                         if store.isLoading && store.errorMessage == nil {
                             ProgressView()
+                                .scaleEffect(1.5)
                                 .padding()
-                        }
-                        
-                        if store.errorMessage != nil {
+                                .transition(.opacity)
+                        } else if store.errorMessage == nil {
                             ErrorView()
-                                .padding(.horizontal, 15)
+                                .padding(.horizontal, Layout.errorViewHorizontalPadding)
+                                .padding(.vertical)
                         }
                     }
-                    .onAppear { store.send(.fetchNewPage(reload: true)) }
-                    .navigationTitle(Localized("repositories_title", store.language))
-                    .navigationBarTitleDisplayMode(.inline)
-                    .navigationDestination(item: $store.scope(state: \.pullRequests, action: \.pullRequests)) { store in
-                        PullRequestsListView(store: store)
+                    .onAppear {
+                        if store.repositories.isEmpty {
+                            store.send(.fetchNewPage(reload: true))
+                        }
                     }
-                }.background(Color.backgroundGray)
+                }
+                .background(Color.backgroundGray)
+                .animation(.easeInOut(duration: 0.3), value: store.isLoading)
+                .modifier(RefreshableModifier(active: true, action: {
+                    store.send(.fetchNewPage(reload: true))
+                }))
+                .navigationTitle(Localized("repositories_title", store.language))
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationDestination(item: $store.scope(state: \.pullRequests, action: \.pullRequests)) { store in
+                    PullRequestsListView(store: store)
+                }
+                .toolbar {
+                    if store.isLoading && !store.repositories.isEmpty {
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            ProgressView()
+                        }
+                    }
+                }
             }
         }
     }
     
+    @ViewBuilder
     private func RepositoriesList() -> some View {
         ForEach(Array(zip(store.repositories.indices, store.repositories)), id: \.0) { (index, element) in
             RepositoryRow(element, at: index)
@@ -69,7 +88,7 @@ struct RepositoryListView: View {
                              bottom:  Layout.rowVerticalInsets,
                              trailing:  Layout.rowVerticalInsets))
         .onAppear {
-            store.send(.fetchPageIfNeeded(index: index))
+            //store.send(.fetchPageIfNeeded(index: index))
         }
     }
     
@@ -81,6 +100,21 @@ struct RepositoryListView: View {
         return MessageActionView(title: Localized("error_message_generic_retry"),
                                  message: message, buttonText: Localized("button_retry")) {
             store.send(.fetchNewPage(reload: false))
+        }
+    }
+}
+
+struct RefreshableModifier: ViewModifier {
+    let active: Bool
+    let action: () -> Void
+    
+    func body(content: Content) -> some View {
+        if active {
+            content.refreshable {
+                action()
+            }
+        } else {
+            content
         }
     }
 }
