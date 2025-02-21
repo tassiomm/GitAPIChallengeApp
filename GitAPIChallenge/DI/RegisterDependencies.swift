@@ -7,14 +7,14 @@
 
 import Foundation
 import DependencyInjection
+import AppFoundation
 import NetworkingInterface
 import Networking
-import RepositoriesFeature
-import RepositoriesAPI
-import RepositoriesRepository
 import RepositoriesAPIInterface
+import RepositoriesAPI
 import RepositoriesRepositoryInterface
-import AppFoundation
+import RepositoriesRepository
+import RepositoriesFeature
 
 extension GitAPIChallengeApp {
     func registerAllDependencies() {
