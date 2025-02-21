@@ -20,16 +20,14 @@ public final actor RepositoriesDataSource: RepositoriesDataSourceProtocol {
     
     public func searchRepositories(language: String, page: Int, perPage: Int) async throws -> RepositoriesResponseEntity {
         let endpoint = RepositoriesEndpoint.searchRepositories(language: language, page: page, perPage: perPage)
-        let key = endpoint.buildRequest()?.url?.absoluteString
+        let key = "searchRepositories:\(language):\(page):\(perPage)"
 
-        if let key, let cache = environment.repositoryPageCache.getValue(forKey: key) {
+        if let cache = environment.repositoryPageCache.getValue(forKey: key) {
             return cache
         }
         
         let response: RepositoriesResponseEntity = try await environment.client.request(endpoint)
-        if let key {
-            environment.repositoryPageCache.setValue(response, forKey: key)
-        }
+        environment.repositoryPageCache.setValue(response, forKey: key)
         
         return response
     }

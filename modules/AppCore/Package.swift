@@ -88,6 +88,7 @@ enum Targets {
         .testTarget(
             name: "AppCoreTests",
             dependencies: [
+                .appFoundation,
                 .networkingInterface,
                 .networking,
                 .dependencyInjection,
@@ -144,6 +145,7 @@ extension PackageDescription.Target.Dependency {
     static let repositoriesRepositoryInterface: Self = .byName(name: "RepositoriesRepositoryInterface")
     
     // internal
+    static let appFoundation: Self = .byName(name: "AppFoundation")
     static let networking: Self = .byName(name: "Networking")
     static let dependencyInjection: Self = .byName(name: "DependencyInjection")
     static let repositoriesAPI: Self = .byName(name: "RepositoriesAPI")

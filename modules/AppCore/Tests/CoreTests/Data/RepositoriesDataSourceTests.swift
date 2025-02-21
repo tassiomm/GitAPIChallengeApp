@@ -67,6 +67,9 @@ final class RepositoriesDataSourceTests: XCTestCase {
 
 extension RepositoriesDataSourceTests {
     func makeSUT(_ networkClient: NetworkClient) -> RepositoriesDataSource {
-        RepositoriesDataSource(environment: .init(client: .resolved(networkClient)))
+        RepositoriesDataSource(environment: 
+                .init(client: .resolved(networkClient),
+                      repositoryPageCache: .resolved(.withBasePolicy()),
+                      pullRequestsCache: .resolved(.withBasePolicy())))
     }
 }

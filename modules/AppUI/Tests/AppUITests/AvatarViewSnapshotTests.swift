@@ -3,6 +3,7 @@ import SwiftUI
 @testable import AppUI
 import SnapshotTesting
 import UIKit
+import AppFoundation
 
 final class AvatarViewSnapshotTests: XCTestCase {
     var record = false
@@ -20,7 +21,7 @@ final class AvatarViewSnapshotTests: XCTestCase {
     func test_avatarView_shouldDisplayImage() {
         let url = "http://www.google.com"
         let uiImage = UIImage.imageWithColor(color: .red)
-        ImageCache.shared.setValue(Image(uiImage: uiImage), forKey: url)
+        Cache<Image>.shared.setValue(Image(uiImage: uiImage), forKey: url)
         let sut = AvatarView(imageUrl: url, username: "username")
         
         let _ = verifySnapshot(
