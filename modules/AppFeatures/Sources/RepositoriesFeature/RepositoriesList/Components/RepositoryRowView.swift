@@ -29,7 +29,7 @@ public struct RepositoryRowView: View {
                     .lineLimit(2)
                 
                 HStack(spacing: 10) {
-                    IconTextView(icon: Image(systemName: "point.topleft.down.to.point.bottomright.filled.curvepath"),
+                    IconTextView(icon: Image("git_fork"),
                                  text: "\(model.forkCount)")
                     IconTextView(icon: Image(systemName: "star.fill"),
                                  text: "\(model.starsCount)")
