@@ -1,5 +1,5 @@
 import XCTest
-@testable import AppFeatures
+@testable import RepositoriesFeature
 
 final class AppFeaturesTests: XCTestCase {
     func testExample() throws {

@@ -41,12 +41,21 @@ enum Targets {
         .target(
             name: "RepositoriesFeature",
             dependencies:
-            [
-                .appUI,
-                .tca,
-                .appCoreInterfaces
-            ],
+                [
+                    .appUI,
+                    .tca,
+                    .appCoreInterfaces
+                ],
             path: "Sources/RepositoriesFeature"
+        ),
+        
+        .testTarget(
+            name: "AppFeaturesTests",
+            dependencies: [
+                    //"RepositoriesFeature",
+                    //.tca
+            ],
+            path: "Tests/AppFeaturesTests"
         )
     ]
 }
