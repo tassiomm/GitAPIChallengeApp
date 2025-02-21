@@ -23,14 +23,13 @@ public struct PullRequest: Equatable, Identifiable {
     }
 }
 
-public struct User: Equatable, Hashable {
-    public let id: Int
-    public let login: String
-    public let avatarURL: String
-    
-    public init(entity: UserEntity) {
-        self.id = entity.id
-        self.login = entity.login
-        self.avatarURL = entity.avatar_url
+#if DEBUG
+public extension PullRequest {
+    static var example: Self {
+        PullRequest(entity: .init(id: 1, title: "tcafork",
+                                  body: "This is my TCA fork",
+                                  html_url: "http://github.api.com/johnsp/tcafork/pulls",
+                                  user: UserEntity.example))
     }
 }
+#endif

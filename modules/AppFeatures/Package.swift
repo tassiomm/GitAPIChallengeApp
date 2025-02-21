@@ -42,6 +42,7 @@ enum Targets {
             name: "RepositoriesFeature",
             dependencies:
                 [
+                    .appCore,
                     .appUI,
                     .tca,
                     .appCoreInterfaces
@@ -52,8 +53,9 @@ enum Targets {
         .testTarget(
             name: "AppFeaturesTests",
             dependencies: [
-                    //"RepositoriesFeature",
-                    //.tca
+                .appCore,
+                .repositoriesFeature,
+                .tca
             ],
             path: "Tests/AppFeaturesTests"
         )
@@ -78,6 +80,10 @@ extension PackageDescription.Target.Dependency {
     // MARK: Local
     static let appUI: Self = .product(name: "AppUI", package: "AppUI")
     static let appCoreInterfaces: Self = .product(name: "AppCoreInterface", package: "AppCore")
+    static let appCore: Self = .product(name: "AppCore", package: "AppCore")
+    
+    // internal
+    static let repositoriesFeature: Self = .byName(name: "RepositoriesFeature")
     
     // tca
     static let tca: Self = .product(name: "ComposableArchitecture", package: "swift-composable-architecture")

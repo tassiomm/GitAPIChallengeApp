@@ -25,7 +25,7 @@ struct PullRequestsListFeature {
     @ObservableState
     struct State: Equatable {
         @Presents var pullRequestDetails: PullRequestDetailsFeature.State?
-        @Presents public var alert: AlertState<Action.Alert>?
+        @Presents var alert: AlertState<Action.Alert>?
         
         let repositoryFullName: String
         var pullRequests: [PullRequest] = []
@@ -102,7 +102,3 @@ struct PullRequestsListFeature {
         }
     }
 }
-
-
-
-

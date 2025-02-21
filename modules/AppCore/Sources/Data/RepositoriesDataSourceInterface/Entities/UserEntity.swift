@@ -18,3 +18,13 @@ public struct UserEntity: Codable {
         self.avatar_url = avatar_url
     }
 }
+
+#if DEBUG
+public extension UserEntity {
+    static var example: Self {
+        UserEntity(id: 1,
+                   login: "johnsp",
+                   avatar_url: "http://www.someurl.com")
+    }
+}
+#endif
