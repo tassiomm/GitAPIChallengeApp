@@ -3,6 +3,7 @@ import XCTest
 import ComposableArchitecture
 
 final class PullRequestDetailsFeatureTests: XCTestCase {
+    
     @MainActor
     func test_actionUpdateIsLoading_expectUpdate() async {
         let url = URL(string: "http://www.google.com")!
@@ -17,6 +18,7 @@ final class PullRequestDetailsFeatureTests: XCTestCase {
         }
     }
     
+    @MainActor
     func test_actionWebViewPhase_expectUpdate() async {
         let url = URL(string: "http://www.google.com")!
         let store = makeSUT(url: url)
