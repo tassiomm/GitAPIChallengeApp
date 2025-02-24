@@ -24,8 +24,8 @@ jobs:
       run: gem install bundler -v 2.6.3
     - name: Install dependencies
       run: bundle install
-    # - name: Run Tests
-    #   run: fastlane tests
+    - name: Skip Swift Macros
+      run: defaults write com.apple.dt.Xcode IDESkipMacroFingerprintValidation -bool YES
     - uses: maierj/fastlane-action@v3.1.0
       with:
         lane: 'tests'
