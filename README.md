@@ -20,6 +20,8 @@ Após conceder a autorização basta rodar o aplicativo utilizando o scheme `Git
 ### Tests
 Para rodar os testes, acesse a aba "Test Navigator" e execute os testes do test plan "GitAPIChallenge.xctestplan".
 
+PS: O testes de Snapshot devem ser rodados no iPhone 14 Pro, iOS 16.0.
+
 # Arquitetura
 Desenvolvimento em três camadas: Presentation (View/Feature), Domain (Repository) e Data (DataSource). As camadas definem uma separação clara de responsabilidade entre a construção da view, a construção do modelo de dados e como os dados são buscados. Uma camada de Networking alimenta DataSources em chamadas HTTP.
 
