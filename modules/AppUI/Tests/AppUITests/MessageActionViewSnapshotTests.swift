@@ -10,7 +10,7 @@ import SnapshotTesting
 import XCTest
 
 final class MessageActionViewSnapshotTests: XCTestCase {
-    var record = true
+    var record = false
     
     func test_messageActionView_withMessage() {
         let sut = MessageActionView(title: "Something went wrong",
