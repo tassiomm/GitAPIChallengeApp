@@ -22,8 +22,8 @@ jobs:
         ruby-version: '3.1'  # Ensure this matches the required version
     - name: Install Bundler
       run: gem install bundler -v 2.6.3
-    # - name: Install dependencies
-    #   run: bundle install
+    - name: Install dependencies
+      run: bundle install
     # - name: Run Tests
     #   run: fastlane tests
     - uses: maierj/fastlane-action@v3.1.0
