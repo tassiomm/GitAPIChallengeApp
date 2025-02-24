@@ -20,6 +20,10 @@ jobs:
       with:
         ruby-version: '2.6.10'
         bundler-cache: true
-    - uses: maierj/fastlane-action@v3.1.0
-      with:
-        lane: 'tests'
+    - name: Install dependencies
+      run: bundle install
+    - name: Run Tests
+      run: fastlane tests
+    # - uses: maierj/fastlane-action@v3.1.0
+    #   with:
+    #     lane: 'tests'
